@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D6fault.me</title>
+<style>
+  body {
+    background-color: rgb(0, 0, 0); 
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+  }
+
+  .glow {
+    font-size: 60px;
+    color: #fff; 
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
+    margin-bottom: 20px; 
+    position: relative; 
+    z-index: 2; 
+  }
+
+  .glow-icon {
+    transition: filter 1s ease-in-out;
+  }
+
+.glow-icon:hover {
+    animation: glow-icon 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow-icon {
+    from {
+        filter: drop-shadow(0 0 5px #000000) drop-shadow(0 0 10px #000000);
+    }
+    to {
+        filter: drop-shadow(0 0 10px #1eff00) drop-shadow(0 0 15px #000000);
+    }
+}
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #000000, 0 0 60px #000000, 0 0 70px #000000;
+    }
+    to {
+      text-shadow: 0 0 20px #1eff00, 0 0 30px #51ff00, 0 0 40px #00ff40, 0 0 50px #00ff00, 0 0 60px #15ff00, 0 0 70px #000000, 0 0 80px #000000;
+    }
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-bottom: 20px; 
+  }
+
+  .box {
+    position: relative;
+    width: 50%;
+    max-width: 300px;
+    text-align: center; 
+    color: #000000; 
+    overflow: hidden; 
+    z-index: 1; 
+    padding: 20px; 
+    background-color: rgba(0, 0, 0, 0.1); 
+  }
+</style>
+</head>
+<body>
+<div class="blur-box">
+  <img src="image.png" alt="its me D6fault :)" class="center" width="200">
+  <a href="https://github.com/d6fault/"><img src="github.png" alt="github" width="60" class="glow-icon"></a>
+  <a href="https://www.youtube.com/@D7fault"><img src="youtube.png" alt="GitHub Icon" class="glow-icon" width="60"></a>
+  <a href="https://tryhackme.com/p/D6fault"><img src="tryhackme.png" alt="GitHub Icon" class="glow-icon" width="60"></a>
+  <a href="https://discordlookup.com/user/1218404293749506088"><img src="discord.png" alt="GitHub Icon" class="glow-icon" width="60"></a>
+  <h1 class="glow">D6FAULT</h1>
+  <p class="body"></p>
+  
+  <audio autoplay>
+    <source src="https://github.com/d6fault/d6fault./raw/main/muisc.mp3" type="audio/mpeg">
+  </audio>
+  
+</div>
+</body>
+</html>
