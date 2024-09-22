@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -28,18 +29,19 @@
     transition: filter 1s ease-in-out;
   }
 
-.glow-icon:hover {
+  .glow-icon:hover {
     animation: glow-icon 1s ease-in-out infinite alternate;
-}
+    filter: drop-shadow(0 0 10px #1eff00);
+  }
 
-@keyframes glow-icon {
+  @keyframes glow-icon {
     from {
-        filter: drop-shadow(0 0 5px #000000) drop-shadow(0 0 10px #000000);
+      filter: drop-shadow(0 0 5px #000000) drop-shadow(0 0 10px #000000);
     }
     to {
-        filter: drop-shadow(0 0 10px #1eff00) drop-shadow(0 0 15px #000000);
+      filter: drop-shadow(0 0 10px #1eff00) drop-shadow(0 0 15px #000000);
     }
-}
+  }
 
   @keyframes glow {
     from {
@@ -52,8 +54,7 @@
 
   .center {
     display: block;
-    margin-left: auto;
-    margin-right: auto; 
+    margin: auto; 
     margin-bottom: 20px; 
   }
 
@@ -71,19 +72,21 @@
 </style>
 </head>
 <body>
-<div class="blur-box">
-  <img src="image.png" alt="its me D6fault :)" class="center" width="200">
-  <a href="https://github.com/d6fault/"><img src="github.png" alt="github" width="60" class="glow-icon"></a>
-  <a href="https://www.youtube.com/@D7fault"><img src="youtube.png" alt="GitHub Icon" class="glow-icon" width="60"></a>
-  <a href="https://tryhackme.com/p/D6fault"><img src="tryhackme.png" alt="GitHub Icon" class="glow-icon" width="60"></a>
-  <a href="https://discordlookup.com/user/1218404293749506088"><img src="discord.png" alt="GitHub Icon" class="glow-icon" width="60"></a>
+<div class="box">
+  <img src="image.png" alt="It's me, D6fault :)" class="center" width="200">
+  <div>
+    <a href="https://github.com/d6fault/"><img src="github.png" alt="GitHub Icon" width="60" class="glow-icon"></a>
+    <a href="https://www.youtube.com/@D7fault"><img src="youtube.png" alt="YouTube Channel" class="glow-icon" width="60"></a>
+    <a href="https://tryhackme.com/p/D6fault"><img src="tryhackme.png" alt="TryHackMe Profile" class="glow-icon" width="60"></a>
+    <a href="https://discordlookup.com/user/1218404293749506088"><img src="discord.png" alt="Discord Profile" class="glow-icon" width="60"></a>
+  </div>
   <h1 class="glow">D6FAULT</h1>
-  <p class="body"></p>
+  <p class="body">Welcome to my page! Here you can find my projects and more about my work.</p>
   
-  <audio autoplay>
+  <audio controls autoplay>
     <source src="https://github.com/d6fault/d6fault-/raw/main/muisc.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
   </audio>
-  
 </div>
 </body>
 </html>
