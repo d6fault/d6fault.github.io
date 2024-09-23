@@ -1,90 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>D6fault.me</title>
-<style>
-  body {
-    background-color: rgb(0, 0, 0); 
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
-    margin: 0;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D6fault</title>
+    <style>
+        body {
+            background-color: rgb(0, 0, 0); 
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            margin: 0;
+            overflow: hidden;
+        }
 
-  .glow {
-    font-size: 60px;
-    color: #fff; 
-    text-align: center;
-    animation: glow 1s ease-in-out infinite alternate;
-    margin-bottom: 20px; 
-    position: relative; 
-    z-index: 2; 
-  }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
 
-  .glow-icon {
-    transition: filter 1s ease-in-out;
-  }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
 
-  .glow-icon:hover {
-    animation: glow-icon 1s ease-in-out infinite alternate;
-    filter: drop-shadow(0 0 10px #1eff00);
-  }
+        .glow {
+            font-size: 60px;
+            color: #fff; 
+            text-align: center;
+            animation: glow 1s ease-in-out infinite alternate;
+            margin-bottom: 20px; 
+            position: relative; 
+            z-index: 2; 
+        }
 
-  @keyframes glow-icon {
-    from {
-      filter: drop-shadow(0 0 5px #000000) drop-shadow(0 0 10px #000000);
-    }
-    to {
-      filter: drop-shadow(0 0 10px #1eff00) drop-shadow(0 0 15px #000000);
-    }
-  }
+        .glow-icon {
+            transition: filter 1s ease-in-out;
+        }
 
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #000000, 0 0 60px #000000, 0 0 70px #000000;
-    }
-    to {
-      text-shadow: 0 0 20px #1eff00, 0 0 30px #51ff00, 0 0 40px #00ff40, 0 0 50px #00ff00, 0 0 60px #15ff00, 0 0 70px #000000, 0 0 80px #000000;
-    }
-  }
+        .glow-icon:hover {
+            animation: glow-icon 1s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 10px rgb(115, 0, 255));
+        }
 
-  .center {
-    display: block;
-    margin: auto; 
-    margin-bottom: 20px; 
-  }
+        @keyframes glow-icon {
+            from {
+                filter: drop-shadow(0 0 5px #000000) drop-shadow(0 0 10px #000000);
+            }
+            to {
+                filter: drop-shadow(0 0 10px #6a00ff) drop-shadow(0 0 15px #000000);
+            }
+        }
 
-  .box {
-    position: relative;
-    width: 50%;
-    max-width: 300px;
-    text-align: center; 
-    color: #000000; 
-    overflow: hidden; 
-    z-index: 1; 
-    padding: 20px; 
-    background-color: rgba(0, 0, 0, 0.1); 
-  }
-</style>
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #000000, 0 0 60px #000000, 0 0 70px #000000;
+            }
+            to {
+                text-shadow: 0 0 20px #6600ff, 0 0 30px #8000ff, 0 0 40px #5500ff, 0 0 50px #6f00ff, 0 0 60px #4400ff, 0 0 70px #000000, 0 0 80px #000000;
+            }
+        }
+
+        .center {
+            display: block;
+            margin: auto; 
+            margin-bottom: 20px; 
+        }
+
+        .box {
+        position: relative;
+        width: 50%;
+        max-width: 300px;
+        text-align: center; 
+        color: #ffffff; 
+        overflow: hidden; 
+        z-index: 1; 
+        padding: 20px; 
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease; 
+}
+
+.box:hover {
+    transform: translateY(-5px); 
+}
+
+    </style>
 </head>
 <body>
-<div class="box">
-  <img src="image.png" alt="It's me, D6fault :)" class="center" width="200">
-  <div>
-    <a href="https://github.com/d6fault/"><img src="github.png" alt="GitHub Icon" width="60" class="glow-icon"></a>
-    <a href="https://www.youtube.com/@D7fault"><img src="youtube.png" alt="YouTube Channel" class="glow-icon" width="60"></a>
-    <a href="https://tryhackme.com/p/D6fault"><img src="tryhackme.png" alt="TryHackMe Profile" class="glow-icon" width="60"></a>
-    <a href="https://discordlookup.com/user/1218404293749506088"><img src="discord.png" alt="Discord Profile" class="glow-icon" width="60"></a>
-  </div>
-  <h1 class="glow">D6FAULT</h1>  
-  <audio controls autoplay>
-    <source src="https://github.com/d6fault/d6fault-/raw/main/muisc.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-</div>
+
+    <div class="video-background">
+        <video autoplay loop>
+            <source src="videoplayback.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="box">
+        <img src="DuiuwbS-modified.png" alt="It's me, D6fault :)" class="center" width="200">
+        <div>
+            <a href="https://github.com/d6fault/"><img src="github.png" alt="GitHub Icon" width="60" class="glow-icon"></a>
+            <a href="https://www.youtube.com/@D6fault1337"><img src="youtube.png" alt="YouTube Channel" class="glow-icon" width="60"></a>
+            <a href="https://tryhackme.com/p/D6fault"><img src="tryhackme.png" alt="TryHackMe Profile" class="glow-icon" width="60"></a>
+            <a href="https://discordlookup.com/user/1270470655674155140"><img src="discord.png" alt="Discord Profile" class="glow-icon" width="60"></a>
+        </div>
+        <h1 class="glow">D6FAULT</h1>  
+    </div>
+    
 </body>
 </html>
