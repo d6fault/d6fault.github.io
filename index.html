@@ -3,118 +3,412 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D6fault</title>
+    <title>Rafael Eusébio - Portfolio</title>
+    <meta content="Rafael Eusébio Also known as D6fault - Portfolio" property="og:title" />
+    <meta content="Rafael Eusébio Portfolio" property="og:description" />
+    <meta content="https://d6fault.github.io" property="og:url" />
+    <meta content="https://i.postimg.cc/Df6YsvQ3/yS4iLNc.png" property="og:image" />
+    <meta content="#00FF00" data-react-helmet="true" name="theme-color" />
+
+
+    <!-- Comprehensive SEO Meta Tags -->
+    <meta name="description" content="Rafael Eusébio: 13-year-old cybersecurity prodigy and software developer. Top 1000 on TryHackMe, specializing in ethical hacking and vulnerability detection.">
+    <meta name="keywords" content="Rafael Eusébio, D6fault, cybersecurity, ethical hacking, software development, vulnerability research, young developer">
+    <meta name="author" content="Rafael Eusébio">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
         body {
-            background-color: rgb(0, 0, 0); 
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; 
-            margin: 0;
-            overflow: hidden;
+            background-color: #0a0a0a; /* Dark background */
+            position: relative;
+            overflow-x: hidden;
+            scroll-behavior: smooth; /* Smooth scrolling */
         }
 
-        .video-background {
+        .dot-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            pointer-events: none;
             z-index: -1;
-            overflow: hidden;
-        }
-
-        video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
+            background-color: #0a0a0a;
+            background-image: 
+                linear-gradient(to right, rgba(255, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
         }
 
         .glow {
-            font-size: 60px;
-            color: #fff; 
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7),
+                         0 0 20px rgba(255, 0, 0, 0.7),
+                         0 0 30px rgba(255, 0, 0, 0.7);
+        }
+
+        /* Modern Button Styles */
+        .btn {
+            padding: 12px 24px;
+            border-radius: 50px; /* Rounded edges */
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(90deg, #c71d1d, #ff4d4d); /* Gradient background */
+            border: none;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
             text-align: center;
-            animation: glow 1s ease-in-out infinite alternate;
-            margin-bottom: 20px; 
-            position: relative; 
-            z-index: 2; 
+            text-decoration: none;
         }
 
-        .glow-icon {
-            transition: filter 1s ease-in-out;
+        .btn:hover {
+            box-shadow: 0 0 20px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 0.5);
+            transform: scale(1.05);
         }
 
-        .glow-icon:hover {
-            animation: glow-icon 1s ease-in-out infinite alternate;
-            filter: drop-shadow(0 0 10px rgb(115, 0, 255));
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
         }
 
-        @keyframes glow-icon {
-            from {
-                filter: drop-shadow(0 0 5px #000000) drop-shadow(0 0 10px #000000);
-            }
+        .dark-mode .dot-background {
+            background-color: #121212;
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #c71d1d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #ff4d4d; /* Lighter shade on hover */
+        }
+
+        @keyframes fadeIn {
             to {
-                filter: drop-shadow(0 0 10px #6a00ff) drop-shadow(0 0 15px #000000);
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #000000, 0 0 60px #000000, 0 0 70px #000000;
-            }
-            to {
-                text-shadow: 0 0 20px #6600ff, 0 0 30px #8000ff, 0 0 40px #5500ff, 0 0 50px #6f00ff, 0 0 60px #4400ff, 0 0 70px #000000, 0 0 80px #000000;
-            }
-        }
-
-        .center {
-            display: block;
-            margin: auto; 
-            margin-bottom: 20px; 
-        }
-
-        .box {
-        position: relative;
-        width: 50%;
-        max-width: 300px;
-        text-align: center; 
-        color: #ffffff; 
-        overflow: hidden; 
-        z-index: 1; 
-        padding: 20px; 
-        background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
-        border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        transition: transform 0.3s ease; 
-}
-
-.box:hover {
-    transform: translateY(-5px); 
-}
-
     </style>
 </head>
 <body>
-
-    <div class="video-background">
-        <video autoplay loop>
-            <source src="videoplayback.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
-    <div class="box">
-        <img src="DuiuwbS-modified.png" alt="It's me, D6fault :)" class="center" width="200">
-        <div>
-            <a href="https://github.com/d6fault/"><img src="github.png" alt="GitHub Icon" width="60" class="glow-icon"></a>
-            <a href="https://www.youtube.com/@D6fault1337"><img src="youtube.png" alt="YouTube Channel" class="glow-icon" width="60"></a>
-            <a href="https://tryhackme.com/p/D6fault"><img src="tryhackme.png" alt="TryHackMe Profile" class="glow-icon" width="60"></a>
-            <a href="https://discordlookup.com/user/1270470655674155140"><img src="discord.png" alt="Discord Profile" class="glow-icon" width="60"></a>
+    <!-- Loading Animation -->
+    <div class="loading" id="loading">
+        <div class="spinner">
+            <i class="fas fa-spinner fa-spin fa-3x" style="color: white;"></i>
         </div>
-        <h1 class="glow">D6FAULT</h1>  
     </div>
-    
+
+    <!-- Dot Background -->
+    <div class="dot-background"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-black/50 backdrop-blur-md z-50 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-200">
+                Rafael Eusébio
+            </div>
+            <div class="flex items-center">
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="text-gray-400 hover:text-red-300 transition">Home</a></li>
+                <li><a href="#about" class="text-gray-400 hover:text-red-300 transition">About</a></li>
+                <li><a href="#blog" class="text-gray-400 hover:text-red-300 transition">Blog</a></li>
+                <li><a href="#contact" class="text-gray-400 hover:text-red-300 transition">Contact</a></li>
+                <li><a href="#socials" class="text-gray-400 hover:text-red-300 transition">Socials</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center container mx-auto px-4 pt-16" data-aos="fade-up">
+        <div>
+            <h1 class="text-5xl font-bold mb-4 text-white">
+                Hello, I'm <span class="glow">Rafael Eusébio</span>
+            </h1>
+            <h2 class="text-2xl text-gray-400 mb-6">
+                Ethical hacker | Tech Enthusiast
+            </h2>
+            <p class="max-w-2xl text-gray-300 mb-8">
+                Passionate about Internet safety and pushing the boundaries of technology.
+            </p>
+            <div class="flex space-x-4">
+                <a href="#contact" class="btn">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-black/40 py-16" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2 relative group">
+                    <img 
+                        src="https://via.placeholder.com/500x500" 
+                        alt="Profile" 
+                        class="relative z-10 rounded-xl shadow-lg w-full transform transition-transform group-hover:scale-105"
+                    >
+                </div>
+                <div class="w-full md:w-1/2 space-y-6">
+                    <div class="bg-black/30 p-6 rounded-xl border border-red-900/30 hover:border-red-600/50 transition">
+                        <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
+                            <i class="fas fa-user-circle text-red-500 mr-3"></i>
+                            Who I Am
+                        </h3>
+                        <p class="text-gray-300 mb-4">
+                            Rafael Eusébio, known online as D6fault, is a 13-year-old Brazilian cybersecurity prodigy whose determination and drive are propelling him to the forefront of the cybersecurity field. Starting his journey at just 11, Rafael has already earned a spot among the Top 1000 globally on TryHackMe and is ranked in the Top 90 in Brazil.
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Recognized as a cybersecurity guru, Rafael has earned praise from some of the biggest names in the industry, including Srhoe, a well-known figure with over 700k followers and a massive cybersecurity Discord server Owlsec. Srhoe and others have publicly acknowledged Rafael’s extraordinary skills, reinforcing his status as a rising star in the cybersecurity community.
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            As D6fault, Rafael’s growing influence extends beyond his technical expertise in ethical hacking and vulnerability detection. His high level of determination, combined with his extensive network of industry professionals, fellow hackers, and aspiring cybersecurity enthusiasts, has allowed him to collaborate on high-level projects and share his knowledge with a wider audience. His network is a powerful asset that not only helps him grow but also enables him to mentor and inspire others in the community.
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Rafael’s passion for cybersecurity, fueled by his unrelenting desire to understand and protect digital systems, is matched by his commitment to educating others. Through his tutorials, live hacking sessions, and security tips, he’s building a community of like-minded individuals who are all eager to learn and grow in the field.
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            With his extensive network, relentless determination, and ever-expanding influence, Rafael is poised to become a leading voice in the cybersecurity industry, shaping the future of digital security and inspiring the next generation of cyber defenders.
+                        </p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-black/30 p-5 rounded-xl border border-red-900/30 hover:border-red-600/50 transition">
+                            <h4 class="font-bold text-red-500 mb-3 flex items-center">
+                                <i class="fas fa-cogs text-red-500 mr-3"></i>
+                                Skills
+                            </h4>
+                            <ul class="text-gray-400 space-y-2">
+                                <li class="flex items-center">
+                                    <i class="fas fa-code text-green-500 mr-2"></i>
+                                    C
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fab fa-python text-yellow-500 mr-2"></i>
+                                    Python
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-code text-gray-500 mr-2"></i>
+                                    ASM
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-terminal text-gray-400 mr-2"></i>
+                                    Shell Script
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fab fa-golang text-blue-500 mr-2"></i>
+                                    Go Lang
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-black/30 p-5 rounded-xl border border-red-900/30 hover:border-red-600/50 transition">
+                            <h4 class="font-bold text-red-500 mb-3 flex items-center">
+                                <i class="fas fa-tools text-red-500 mr-3"></i>
+                                Tools
+                            </h4>
+                            <ul class="text-gray-400 space-y-2">
+                                <li class="flex items-center">
+                                    <i class="fab fa-vmware text-blue-500 mr-2"></i>
+                                    VMware
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fab fa-linux text-green-500 mr-2"></i>
+                                    QEMU/KVM
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fab fa-linux text-yellow-500 mr-2"></i>
+                                    Kali Linux
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fab fa-ubuntu text-red-500 mr-2"></i>
+                                    Metasploit
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-bug text-orange-500 mr-2"></i>
+                                    Burp Suite
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-network-wired text-blue-400 mr-2"></i>
+                                    Wireshark
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-sitemap text-green-400 mr-2"></i>
+                                    Nmap
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Blog Section -->
+    <section id="blog" class="bg-black/40 py-16" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">My Blog</h2>
+            <p class="text-center text-gray-300 mb-6">
+                Welcome to my blog! Here, I share insights, tutorials, and write-ups on various topics related to cybersecurity,
+                programming, and technology. Explore my latest posts to enhance your knowledge and stay updated.
+            </p>
+            <div class="text-center">
+                <a href="blog.html" class="btn bg-red-500 text-white py-2 px-6 rounded">THIS IS NOT AVAILABLE AS OF NOW</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Socials Section -->
+    <section id="socials" class="bg-black/40 py-16" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">Socials</h2>
+            <div class="flex justify-center space-x-6">
+                <a href="https://tryhackme.com/D6fault" target="_blank" class="flex items-center text-red-500 hover:text-red-300 transition">
+                    <i class="fab fa-tryhackme fa-2x mr-2"></i>
+                    TryHackMe
+                </a>
+                <a href="https://discord.com/" target="_blank" class="flex items-center text-red-500 hover:text-red-300 transition">
+                    <i class="fab fa-discord fa-2x mr-2"></i>
+                    Discord
+                </a>
+                <a href="https://www.instagram.com/d6fault0day" target="_blank" class="flex items-center text-red-500 hover:text-red-300 transition">
+                    <i class="fab fa-instagram fa-2x mr-2"></i>
+                    Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-black/40 py-16" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">Contact Me</h2>
+            <div class="max-w-2xl mx-auto bg-black/30 p-8 rounded-lg text-center">
+                <h3 class="text-2xl text-red-500 mb-4">Get In Touch</h3>
+                <p class="text-gray-300 mb-4">Feel free to reach out via email:</p>
+                <a 
+                    href="mailto:rafael.eusebio.Sec@proton.me" 
+                    class="text-3xl text-white hover:text-red-500 transition duration-300 flex items-center justify-center"
+                >
+                    <i class="fas fa-envelope fa-2x mr-3 text-red-500"></i>
+                    rafael.eusebio.Sec@proton.me
+                </a>
+                <p class="text-gray-300 mt-4">I look forward to connecting with you!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-black/30 py-8">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-400">
+                © 2024 Rafael Eusébio. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        // Performance Monitoring
+        window.onload = function() {
+            document.getElementById("loading").classList.add("hidden");
+            const loadTime = performance.now();
+            console.log(`Page loaded in ${loadTime.toFixed(2)} milliseconds`);
+        };
+
+        // Initialize AOS
+        AOS.init();
+
+        // Scroll to Top Button
+        const scrollToTopButton = document.getElementById('scrollToTop');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollToTopButton.style.display = "flex";
+            } else {
+                scrollToTopButton.style.display = "none";
+            }
+        };
+
+        scrollToTopButton.onclick = function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', 
+                document.body.classList.contains('dark-mode') ? 'dark' : 'light'
+            );
+            // Change Icon
+            themeToggle.innerHTML = document.body.classList.contains('dark-mode') ? 
+                '<i class="fas fa-sun"></i>' : 
+                '<i class="fas fa-moon"></i>';
+        });
+
+        // Initial setup
+        document.body.classList.toggle('dark-mode', localStorage.getItem('theme') === 'dark');
+        themeToggle.innerHTML = document.body.classList.contains('dark-mode') ? 
+            '<i class="fas fa-sun"></i>' : 
+            '<i class="fas fa-moon"></i>';
+    </script>
 </body>
 </html>
