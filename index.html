@@ -11,12 +11,10 @@
     <meta content="#00FF00" data-react-helmet="true" name="theme-color" />
 
 
-    <!-- Comprehensive SEO Meta Tags -->
     <meta name="description" content="Rafael Eusébio: 13-year-old cybersecurity prodigy and software developer. Top 1000 on TryHackMe, specializing in ethical hacking and vulnerability detection.">
     <meta name="keywords" content="Rafael Eusébio, D6fault, cybersecurity, ethical hacking, software development, vulnerability research, young developer">
     <meta name="author" content="Rafael Eusébio">
     
-    <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="X-Frame-Options" content="DENY">
@@ -28,10 +26,10 @@
     
     <style>
         body {
-            background-color: #0a0a0a; /* Dark background */
+            background-color: #0a0a0a; 
             position: relative;
             overflow-x: hidden;
-            scroll-behavior: smooth; /* Smooth scrolling */
+            scroll-behavior: smooth; 
         }
 
         .dot-background {
@@ -55,10 +53,9 @@
                          0 0 30px rgba(255, 0, 0, 0.7);
         }
 
-        /* Modern Button Styles */
         .btn {
             padding: 12px 24px;
-            border-radius: 50px; /* Rounded edges */
+            border-radius: 50px; 
             font-weight: bold;
             color: white;
             background: linear-gradient(90deg, #c71d1d, #ff4d4d); /* Gradient background */
@@ -75,7 +72,6 @@
             transform: scale(1.05);
         }
 
-        /* Dark Mode Styles */
         body.dark-mode {
             background-color: #121212;
             color: #ffffff;
@@ -85,7 +81,6 @@
             background-color: #121212;
         }
 
-        /* Loading Animation */
         .loading {
             position: fixed;
             top: 0;
@@ -107,7 +102,6 @@
             pointer-events: none;
         }
 
-        /* Scroll to Top Button */
         .scroll-to-top {
             position: fixed;
             bottom: 20px;
@@ -118,7 +112,7 @@
             border-radius: 50%;
             height: 50px;
             width: 50px;
-            display: none; /* Hidden by default */
+            display: none; 
             justify-content: center;
             align-items: center;
             cursor: pointer;
@@ -127,7 +121,7 @@
         }
 
         .scroll-to-top:hover {
-            background-color: #ff4d4d; /* Lighter shade on hover */
+            background-color: #ff4d4d; 
         }
 
         @keyframes fadeIn {
@@ -139,17 +133,14 @@
     </style>
 </head>
 <body>
-    <!-- Loading Animation -->
     <div class="loading" id="loading">
         <div class="spinner">
             <i class="fas fa-spinner fa-spin fa-3x" style="color: white;"></i>
         </div>
     </div>
 
-    <!-- Dot Background -->
     <div class="dot-background"></div>
 
-    <!-- Navigation -->
     <nav class="fixed w-full bg-black/50 backdrop-blur-md z-50 p-4">
         <div class="container mx-auto flex justify-between items-center">
             <div class="text-2xl font-bold text-gray-200">
@@ -171,7 +162,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center container mx-auto px-4 pt-16" data-aos="fade-up">
         <div>
             <h1 class="text-5xl font-bold mb-4 text-white">
@@ -191,7 +181,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="bg-black/40 py-16" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-white">About Me</h2>
@@ -213,7 +202,7 @@
                             Rafael Eusébio, known online as D6fault, is a 13-year-old Brazilian cybersecurity prodigy whose determination and drive are propelling him to the forefront of the cybersecurity field. Starting his journey at just 11, Rafael has already earned a spot among the Top 1000 globally on TryHackMe and is ranked in the Top 90 in Brazil.
                         </p>
                         <p class="text-gray-300 mb-4">
-                            Recognized as a cybersecurity guru, Rafael has earned praise from some of the biggest names in the industry, including Srhoe, a well-known figure with over 700k followers and a massive cybersecurity Discord server Owlsec. Srhoe and others have publicly acknowledged Rafael’s extraordinary skills, reinforcing his status as a rising star in the cybersecurity community.
+                            Recognized as a cybersecurity guru, Rafael has earned praise from some of the biggest names in the industry, including Srhoe, a well-known figure with over 700k followers and a massive cybersecurity Discord server Owlsec. Srhoe and others Like 0day aka Ryan Montgomery have publicly acknowledged Rafael’s extraordinary skills, reinforcing his status as a rising star in the cybersecurity community.
                         </p>
                         <p class="text-gray-300 mb-4">
                             As D6fault, Rafael’s growing influence extends beyond his technical expertise in ethical hacking and vulnerability detection. His high level of determination, combined with his extensive network of industry professionals, fellow hackers, and aspiring cybersecurity enthusiasts, has allowed him to collaborate on high-level projects and share his knowledge with a wider audience. His network is a powerful asset that not only helps him grow but also enables him to mentor and inspire others in the community.
@@ -297,7 +286,6 @@
     </section>
 
 
-    <!-- Blog Section -->
     <section id="blog" class="bg-black/40 py-16" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-white">My Blog</h2>
@@ -311,7 +299,6 @@
         </div>
     </section>
 
-    <!-- Socials Section -->
     <section id="socials" class="bg-black/40 py-16" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-white">Socials</h2>
@@ -332,7 +319,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="bg-black/40 py-16" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-white">Contact Me</h2>
@@ -366,17 +352,14 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
     <script>
-        // Performance Monitoring
         window.onload = function() {
             document.getElementById("loading").classList.add("hidden");
             const loadTime = performance.now();
             console.log(`Page loaded in ${loadTime.toFixed(2)} milliseconds`);
         };
 
-        // Initialize AOS
         AOS.init();
 
-        // Scroll to Top Button
         const scrollToTopButton = document.getElementById('scrollToTop');
         window.onscroll = function() {
             if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -390,20 +373,17 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         };
 
-        // Theme Toggle
         const themeToggle = document.getElementById('theme-toggle');
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             localStorage.setItem('theme', 
                 document.body.classList.contains('dark-mode') ? 'dark' : 'light'
             );
-            // Change Icon
             themeToggle.innerHTML = document.body.classList.contains('dark-mode') ? 
                 '<i class="fas fa-sun"></i>' : 
                 '<i class="fas fa-moon"></i>';
         });
 
-        // Initial setup
         document.body.classList.toggle('dark-mode', localStorage.getItem('theme') === 'dark');
         themeToggle.innerHTML = document.body.classList.contains('dark-mode') ? 
             '<i class="fas fa-sun"></i>' : 
