@@ -10,7 +10,6 @@
     <meta content="https://i.postimg.cc/Df6YsvQ3/yS4iLNc.png" property="og:image" />
     <meta content="#00FF00" data-react-helmet="true" name="theme-color" />
 
-
     <meta name="description" content="Rafael Eusébio: 13-year-old cybersecurity prodigy and software developer. Top 1000 on TryHackMe, specializing in ethical hacking and vulnerability detection.">
     <meta name="keywords" content="Rafael Eusébio, D6fault, cybersecurity, ethical hacking, software development, vulnerability research, young developer">
     <meta name="author" content="Rafael Eusébio">
@@ -26,10 +25,11 @@
     
     <style>
         body {
-            background-color: #0a0a0a; 
-            position: relative;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            scroll-behavior: smooth; 
+            scroll-behavior: smooth;
         }
 
         .dot-background {
@@ -42,9 +42,10 @@
             z-index: -1;
             background-color: #0a0a0a;
             background-image: 
-                linear-gradient(to right, rgba(255, 0, 0, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 0, 0, 0.05) 1px, transparent 1px);
+                radial-gradient(circle, rgba(255, 0, 0, 0.1) 1px, transparent 1px),
+                radial-gradient(circle, rgba(255, 0, 0, 0.1) 1px, transparent 1px);
             background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
         }
 
         .glow {
@@ -55,10 +56,10 @@
 
         .btn {
             padding: 12px 24px;
-            border-radius: 50px; 
+            border-radius: 50px;
             font-weight: bold;
             color: white;
-            background: linear-gradient(90deg, #c71d1d, #ff4d4d); /* Gradient background */
+            background: linear-gradient(90deg, #c71d1d, #ff4d4d);
             border: none;
             transition: transform 0.2s ease, box-shadow 0.3s ease;
             cursor: pointer;
@@ -72,13 +73,17 @@
             transform: scale(1.05);
         }
 
-        body.dark-mode {
-            background-color: #121212;
-            color: #ffffff;
+        .card {
+            background: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 0, 0, 0.1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .dark-mode .dot-background {
-            background-color: #121212;
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 0, 0, 0.5);
         }
 
         .loading {
@@ -87,7 +92,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.9);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -112,7 +117,7 @@
             border-radius: 50%;
             height: 50px;
             width: 50px;
-            display: none; 
+            display: none;
             justify-content: center;
             align-items: center;
             cursor: pointer;
@@ -121,14 +126,20 @@
         }
 
         .scroll-to-top:hover {
-            background-color: #ff4d4d; 
+            background-color: #ff4d4d;
         }
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
+        @keyframes float {
+            0%, 100% {
                 transform: translateY(0);
             }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
         }
     </style>
 </head>
@@ -146,12 +157,6 @@
             <div class="text-2xl font-bold text-gray-200">
                 Rafael Eusébio
             </div>
-            <div class="flex items-center">
-                <!-- Theme Toggle -->
-                <button id="theme-toggle" class="btn">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
             <ul class="flex space-x-6">
                 <li><a href="#home" class="text-gray-400 hover:text-red-300 transition">Home</a></li>
                 <li><a href="#about" class="text-gray-400 hover:text-red-300 transition">About</a></li>
@@ -164,11 +169,11 @@
 
     <section id="home" class="min-h-screen flex items-center container mx-auto px-4 pt-16" data-aos="fade-up">
         <div>
-            <h1 class="text-5xl font-bold mb-4 text-white">
+            <h1 class="text-6xl font-bold mb-4 text-white">
                 Hello, I'm <span class="glow">Rafael Eusébio</span>
             </h1>
-            <h2 class="text-2xl text-gray-400 mb-6">
-                Ethical hacker | Tech Enthusiast
+            <h2 class="text-3xl text-gray-400 mb-6">
+                Ethical Hacker | Tech Enthusiast
             </h2>
             <p class="max-w-2xl text-gray-300 mb-8">
                 Passionate about Internet safety and pushing the boundaries of technology.
@@ -180,8 +185,8 @@
             </div>
         </div>
     </section>
-
-    <section id="about" class="bg-black/40 py-16" data-aos="fade-up">
+    
+    <section id="about" class="py-16" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-white">About Me</h2>
             <div class="flex flex-col md:flex-row items-center gap-12">
@@ -189,11 +194,11 @@
                     <img 
                         src="https://raw.githubusercontent.com/d6fault/d6fault.github.io/refs/heads/main/p.jpeg" 
                         alt="Profile" 
-                        class="relative z-10 rounded-xl shadow-lg w-full transform transition-transform group-hover:scale-105"
+                        class="relative z-10 rounded-xl shadow-lg w-full transform transition-transform group-hover:scale-105 floating"
                     >
                 </div>
                 <div class="w-full md:w-1/2 space-y-6">
-                    <div class="bg-black/30 p-6 rounded-xl border border-red-900/30 hover:border-red-600/50 transition">
+                    <div class="card p-6">
                         <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
                             <i class="fas fa-user-circle text-red-500 mr-3"></i>
                             Who I Am
@@ -202,7 +207,7 @@
                             Rafael Eusébio, known online as D6fault, is a 13-year-old Brazilian cybersecurity prodigy whose determination and drive are propelling him to the forefront of the cybersecurity field. Starting his journey at just 11, Rafael has already earned a spot among the Top 1000 globally on TryHackMe and is ranked in the Top 90 in Brazil.
                         </p>
                         <p class="text-gray-300 mb-4">
-                            Recognized as a cybersecurity guru, Rafael has earned praise from some of the biggest names in the industry, including Srhoe, a well-known figure with over 700k followers and a massive cybersecurity Discord server Owlsec. Srhoe and others Like 0day aka Ryan Montgomery have publicly acknowledged Rafael’s extraordinary skills, reinforcing his status as a rising star in the cybersecurity community.
+                            Recognized as a cybersecurity guru, Rafael has earned praise from some of the biggest names in the industry, including Srhoe, a well-known figure with over 700k followers and a massive cybersecurity Discord server Owlsec. Srhoe and others like 0day aka Ryan Montgomery have publicly acknowledged Rafael’s extraordinary skills, reinforcing his status as a rising star in the cybersecurity community.
                         </p>
                         <p class="text-gray-300 mb-4">
                             As D6fault, Rafael’s growing influence extends beyond his technical expertise in ethical hacking and vulnerability detection. His high level of determination, combined with his extensive network of industry professionals, fellow hackers, and aspiring cybersecurity enthusiasts, has allowed him to collaborate on high-level projects and share his knowledge with a wider audience. His network is a powerful asset that not only helps him grow but also enables him to mentor and inspire others in the community.
@@ -215,7 +220,7 @@
                         </p>
                     </div>
                     <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-black/30 p-5 rounded-xl border border-red-900/30 hover:border-red-600/50 transition">
+                        <div class="card p-5">
                             <h4 class="font-bold text-red-500 mb-3 flex items-center">
                                 <i class="fas fa-cogs text-red-500 mr-3"></i>
                                 Skills
@@ -243,7 +248,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="bg-black/30 p-5 rounded-xl border border-red-900/30 hover:border-red-600/50 transition">
+                        <div class="card p-5">
                             <h4 class="font-bold text-red-500 mb-3 flex items-center">
                                 <i class="fas fa-tools text-red-500 mr-3"></i>
                                 Tools
@@ -284,9 +289,10 @@
             </div>
         </div>
     </section>
+    
 
 
-    <section id="blog" class="bg-black/40 py-16" data-aos="fade-up">
+    <section id="blog" class="py-16" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-white">My Blog</h2>
             <p class="text-center text-gray-300 mb-6">
@@ -294,12 +300,113 @@
                 programming, and technology. Explore my latest posts to enhance your knowledge and stay updated.
             </p>
             <div class="text-center">
-                <a href="blog.html" class="btn bg-red-500 text-white py-2 px-6 rounded">THIS IS NOT AVAILABLE AS OF NOW</a>
+                <a href="blog.html" class="btn">THIS IS NOT AVAILABLE AS OF NOW</a>
             </div>
         </div>
     </section>
 
-    <section id="socials" class="bg-black/40 py-16" data-aos="fade-up">
+<section id="project-2031" class="py-16" data-aos="fade-up">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12 text-white">Project 2031</h2>
+        <p class="text-center text-gray-300 mb-6">
+            By 2031, I aim to achieve the following certifications to solidify my expertise in cybersecurity and ethical hacking. This is my roadmap to mastery.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card p-6">
+                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
+                    <i class="fas fa-certificate text-red-500 mr-3"></i>
+                    CompTIA A+
+                </h3>
+                <p class="text-gray-300">
+                    The foundational certification for IT professionals, covering hardware, networking, and troubleshooting.
+                </p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
+                    <i class="fas fa-certificate text-red-500 mr-3"></i>
+                    CompTIA Security+
+                </h3>
+                <p class="text-gray-300">
+                    A globally recognized certification validating baseline cybersecurity skills.
+                </p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
+                    <i class="fas fa-certificate text-red-500 mr-3"></i>
+                    PJPT (Practical Junior Penetration Tester)
+                </h3>
+                <p class="text-gray-300">
+                    A hands-on certification focusing on penetration testing fundamentals.
+                </p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
+                    <i class="fas fa-certificate text-red-500 mr-3"></i>
+                    PNPT (Practical Network Penetration Tester)
+                </h3>
+                <p class="text-gray-300">
+                    An advanced certification for network penetration testing and exploitation.
+                </p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
+                    <i class="fas fa-certificate text-red-500 mr-3"></i>
+                    CRTO (Certified Red Team Operator)
+                </h3>
+                <p class="text-gray-300">
+                    A certification focused on red teaming and adversary simulation.
+                </p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
+                    <i class="fas fa-certificate text-red-500 mr-3"></i>
+                    OSCP (Offensive Security Certified Professional)
+                </h3>
+                <p class="text-gray-300">
+                    The gold standard for penetration testing certifications, emphasizing hands-on skills.
+                </p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
+                    <i class="fas fa-certificate text-red-500 mr-3"></i>
+                    OSEP (Offensive Security Experienced Penetration Tester)
+                </h3>
+                <p class="text-gray-300">
+                    An advanced certification focusing on evasion techniques and advanced exploitation.
+                </p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
+                    <i class="fas fa-certificate text-red-500 mr-3"></i>
+                    OSWP (Offensive Security Wireless Professional)
+                </h3>
+                <p class="text-gray-300">
+                    A certification specializing in wireless network penetration testing.
+                </p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
+                    <i class="fas fa-certificate text-red-500 mr-3"></i>
+                    OSED (Offensive Security Exploit Developer)
+                </h3>
+                <p class="text-gray-300">
+                    A certification focused on exploit development and advanced reverse engineering.
+                </p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
+                    <i class="fas fa-certificate text-red-500 mr-3"></i>
+                    OSEE (Offensive Security Exploitation Expert)
+                </h3>
+                <p class="text-gray-300">
+                    The pinnacle of Offensive Security certifications, focusing on advanced exploitation techniques.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="socials" class="py-16" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-white">Socials</h2>
             <div class="flex justify-center space-x-6">
@@ -319,10 +426,10 @@
         </div>
     </section>
 
-    <section id="contact" class="bg-black/40 py-16" data-aos="fade-up">
+    <section id="contact" class="py-16" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-white">Contact Me</h2>
-            <div class="max-w-2xl mx-auto bg-black/30 p-8 rounded-lg text-center">
+            <div class="max-w-2xl mx-auto card p-8 text-center">
                 <h3 class="text-2xl text-red-500 mb-4">Get In Touch</h3>
                 <p class="text-gray-300 mb-4">Feel free to reach out via email:</p>
                 <a 
@@ -336,12 +443,10 @@
         </div>
     </section>
 
-    <!-- Scroll to Top Button -->
     <button id="scrollToTop" class="scroll-to-top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <!-- Footer -->
     <footer class="bg-black/30 py-8">
         <div class="container mx-auto text-center">
             <p class="text-gray-400">
@@ -372,22 +477,27 @@
         scrollToTopButton.onclick = function() {
             window.scrollTo({top: 0, behavior: 'smooth'});
         };
+    </script>
 
-        const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('theme', 
-                document.body.classList.contains('dark-mode') ? 'dark' : 'light'
-            );
-            themeToggle.innerHTML = document.body.classList.contains('dark-mode') ? 
-                '<i class="fas fa-sun"></i>' : 
-                '<i class="fas fa-moon"></i>';
-        });
+    <script>
+        document.getElementById("terminal-input").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        const input = event.target.value;
+        const outputArea = document.getElementById("output");
 
-        document.body.classList.toggle('dark-mode', localStorage.getItem('theme') === 'dark');
-        themeToggle.innerHTML = document.body.classList.contains('dark-mode') ? 
-            '<i class="fas fa-sun"></i>' : 
-            '<i class="fas fa-moon"></i>';
+        outputArea.innerHTML += `<span class="text-red-500">d6fault@portfolio:~$ ${input}</span><br/>`;
+
+        handleCommand(input.toLowerCase().trim());
+
+        outputArea.scrollTop = outputArea.scrollHeight;
+
+        event.target.value = '';
+    }
+});
+
+
+
     </script>
 </body>
 </html>
