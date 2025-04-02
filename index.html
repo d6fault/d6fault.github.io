@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rafael Eusébio - Portfolio</title>
-    <meta content="Rafael Eusébio Also known as D6fault - Portfolio" property="og:title" />
-    <meta content="Rafael Eusébio Portfolio" property="og:description" />
-    <meta content="https://d6fault.github.io" property="og:url" />
+    <title>D6fault aka Rafael Eusébio - Portfolio</title>
+    <meta content="D6fault aka Rafael Eusébio - Portfolio" property="og:title" />
+    <meta content="D6fault aka Rafael Eusébio Portfolio" property="og:description" />
+    <meta content="https://d6fault.dev" property="og:url" />
     <meta content="https://i.postimg.cc/Df6YsvQ3/yS4iLNc.png" property="og:image" />
-    <meta content="#00FF00" data-react-helmet="true" name="theme-color" />
+    <meta content="#0f172a" data-react-helmet="true" name="theme-color" />
 
-    <meta name="description" content="Rafael Eusébio: 13-year-old cybersecurity prodigy and software developer. Top 1000 on TryHackMe, specializing in ethical hacking and vulnerability detection.">
-    <meta name="keywords" content="Rafael Eusébio, D6fault, cybersecurity, ethical hacking, software development, vulnerability research, young developer">
-    <meta name="author" content="Rafael Eusébio">
+    <meta name="description" content="D6fault aka Rafael Eusébio: 13-year-old cybersecurity prodigy and software developer. Top 1000 on TryHackMe, specializing in ethical hacking and vulnerability detection.">
+    <meta name="keywords" content="D6fault aka Rafael Eusébio, D6fault, cybersecurity, ethical hacking, software development, vulnerability research, young developer">
+    <meta name="author" content="D6fault aka Rafael Eusébio">
     
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
@@ -22,482 +22,1493 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
     <style>
-        body {
-            background-color: #0a0a0a;
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #3b82f6;
+            --accent-color: #7c3aed;
+            --accent-secondary: #db2777;
+            --text-color: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --bg-color: #030712;
+            --bg-secondary: #111827;
+            --border-color: #1f2937;
         }
 
-        .dot-background {
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            background-color: #0a0a0a;
-            background-image: 
-                radial-gradient(circle, rgba(255, 0, 0, 0.1) 1px, transparent 1px),
-                radial-gradient(circle, rgba(255, 0, 0, 0.1) 1px, transparent 1px);
-            background-size: 30px 30px;
-            background-position: 0 0, 15px 15px;
+            z-index: -2;
         }
 
-        .glow {
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7),
-                         0 0 20px rgba(255, 0, 0, 0.7),
-                         0 0 30px rgba(255, 0, 0, 0.7);
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 0% 0%, rgba(79, 70, 229, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 100% 0%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(219, 39, 119, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 0% 100%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+            opacity: 0.5;
+            animation: backgroundMove 30s linear infinite;
+        }
+
+        @keyframes backgroundMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 60px; }
+        }
+
+        .nav-container {
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(79, 70, 229, 0.2);
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transition: width 0.3s ease;
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
         }
 
         .btn {
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-weight: bold;
-            color: white;
-            background: linear-gradient(90deg, #c71d1d, #ff4d4d);
-            border: none;
-            transition: transform 0.2s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            display: inline-block;
-            text-align: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
             text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
 
-        .btn:hover {
-            box-shadow: 0 0 20px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 0.5);
-            transform: scale(1.05);
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            box-shadow: 0 0 30px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 40px rgba(79, 70, 229, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.1);
+        }
+
+        .btn-outline:hover {
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 0 40px rgba(79, 70, 229, 0.3);
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
         }
 
         .card {
-            background: rgba(18, 18, 18, 0.7);
+            background: rgba(17, 24, 39, 0.7);
             backdrop-filter: blur(10px);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 0, 0, 0.1);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            border-radius: 16px;
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            transition: all 0.3s ease;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle at center,
+                rgba(79, 70, 229, 0.1) 0%,
+                transparent 70%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            transform: translate(-50%, -50%) rotate(0deg);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255, 0, 0, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 0 40px rgba(79, 70, 229, 0.2);
+            border-color: rgba(79, 70, 229, 0.4);
         }
 
-        .loading {
-            position: fixed;
-            top: 0;
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(79, 70, 229, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
             left: 0;
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 1;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            box-shadow: 0 0 20px var(--primary-color);
         }
 
-        .loading.hidden {
-            opacity: 0;
-            pointer-events: none;
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 12px;
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(79, 70, 229, 0.1), 
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .skill-item:hover::before {
+            left: 100%;
+        }
+
+        .skill-item:hover {
+            transform: translateX(8px);
+            background: rgba(17, 24, 39, 0.9);
+            box-shadow: 0 0 30px rgba(79, 70, 229, 0.2);
+            border-color: rgba(79, 70, 229, 0.4);
+        }
+
+        .skill-item i {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            filter: drop-shadow(0 0 10px rgba(79, 70, 229, 0.3));
+        }
+
+        /* Skills Progress Bar Styles */
+        .skill-progress-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-progress-bar {
+            height: 8px;
+            background: rgba(31, 41, 55, 0.7);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            position: relative;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        .skill-progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 5px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 4px;
+            filter: blur(3px);
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: var(--bg-color);
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.5);
+        }
+
+        .timeline-left {
+            left: 0;
+        }
+
+        .timeline-right {
+            left: 50%;
+        }
+
+        .timeline-left::after {
+            right: -12px;
+        }
+
+        .timeline-right::after {
+            left: -12px;
+        }
+
+        .timeline-content {
+            padding: 1.5rem;
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 40px rgba(79, 70, 229, 0.2);
+            border-color: rgba(79, 70, 229, 0.4);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .timeline-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(79, 70, 229, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            position: absolute;
+            top: -20px;
+            right: 20px;
+        }
+
+        .timeline-icon i {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(79, 70, 229, 0.3));
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 19px;
+            }
+
+            .timeline-right {
+                left: 0;
+            }
+        }
+
+        .social-link {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(79, 70, 229, 0.1), 
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
+        }
+
+        .social-link:hover {
+            color: var(--primary-color);
+            background: rgba(17, 24, 39, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(79, 70, 229, 0.2);
+            border-color: rgba(79, 70, 229, 0.4);
+        }
+
+        .social-link i {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(79, 70, 229, 0.3));
         }
 
         .scroll-to-top {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #c71d1d;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
             color: white;
-            border: none;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            height: 50px;
-            width: 50px;
-            display: none;
-            justify-content: center;
+            display: flex;
             align-items: center;
+            justify-content: center;
             cursor: pointer;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
 
         .scroll-to-top:hover {
-            background-color: #ff4d4d;
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(79, 70, 229, 0.5);
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+        .gradient-text {
+            background: linear-gradient(135deg, 
+                var(--primary-color), 
+                var(--accent-color), 
+                var(--accent-secondary)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient 8s ease infinite;
+            background-size: 200% 200%;
+            text-shadow: 0 0 40px rgba(79, 70, 229, 0.3);
+            position: relative;
+        }
+
+        .profile-container {
+            position: relative;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        .profile-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                circle at center,
+                rgba(79, 70, 229, 0.15) 0%,
+                transparent 70%
+            );
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .profile-image-wrapper {
+            position: relative;
+            padding: 4px;
+            border-radius: 50%;
+            background: linear-gradient(
+                45deg,
+                var(--primary-color),
+                var(--accent-color),
+                var(--accent-secondary)
+            );
+            box-shadow: 0 0 50px rgba(79, 70, 229, 0.3);
+            aspect-ratio: 1;
+            width: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .profile-image {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            display: block;
+            transition: all 0.3s ease;
+            border: 4px solid var(--bg-color);
+            object-fit: cover;
+        }
+
+        .profile-image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 50%;
+            padding: 2px;
+            background: linear-gradient(
+                45deg,
+                var(--primary-color),
+                var(--accent-color),
+                var(--accent-secondary),
+                var(--primary-color)
+            );
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .profile-image-wrapper:hover::before {
+            opacity: 1;
+        }
+
+        .profile-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 50%;
+            background: linear-gradient(
+                45deg,
+                var(--primary-color),
+                var(--accent-color),
+                var(--accent-secondary),
+                var(--primary-color)
+            );
+            filter: blur(20px);
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .profile-image-wrapper:hover::after {
+            opacity: 0.5;
         }
 
         .floating {
-            animation: float 3s ease-in-out infinite;
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .testimonial-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card.featured {
+            grid-column: 1 / -1;
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 40px rgba(79, 70, 229, 0.2);
+            border-color: rgba(79, 70, 229, 0.4);
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle at center,
+                rgba(79, 70, 229, 0.1) 0%,
+                transparent 70%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            transform: translate(-50%, -50%) rotate(0deg);
+            animation: rotate 10s linear infinite;
+        }
+
+        .testimonial-card:hover::before {
+            opacity: 1;
+        }
+
+        .testimonial-quote {
+            font-size: 2rem;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            opacity: 0.1;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(79, 70, 229, 0.2);
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .project-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 40px rgba(79, 70, 229, 0.2);
+            border-color: rgba(79, 70, 229, 0.4);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle at center,
+                rgba(79, 70, 229, 0.1) 0%,
+                transparent 70%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            transform: translate(-50%, -50%) rotate(0deg);
+            animation: rotate 10s linear infinite;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 16px 16px 0 0;
+            border-bottom: 1px solid rgba(79, 70, 229, 0.2);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary-color);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .project-tag:hover {
+            background: rgba(79, 70, 229, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--text-color);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+        }
+
+        .project-link:hover {
+            background: rgba(79, 70, 229, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .project-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            background: rgba(79, 70, 229, 0.9);
+            color: white;
+            backdrop-filter: blur(4px);
         }
     </style>
 </head>
 <body>
-    <div class="loading" id="loading">
-        <div class="spinner">
-            <i class="fas fa-spinner fa-spin fa-3x" style="color: white;"></i>
-        </div>
-    </div>
-
-    <div class="dot-background"></div>
-
-    <nav class="fixed w-full bg-black/50 backdrop-blur-md z-50 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="text-2xl font-bold text-gray-200">
-                Rafael Eusébio
+    <div id="particles-js"></div>
+    <nav class="fixed w-full nav-container z-50 py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-xl font-bold gradient-text">Rafael Eusébio</a>
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                    <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
             </div>
-            <ul class="flex space-x-6">
-                <li><a href="#home" class="text-gray-400 hover:text-red-300 transition">Home</a></li>
-                <li><a href="#about" class="text-gray-400 hover:text-red-300 transition">About</a></li>
-                <li><a href="#blog" class="text-gray-400 hover:text-red-300 transition">Blog</a></li>
-                <li><a href="#contact" class="text-gray-400 hover:text-red-300 transition">Contact</a></li>
-                <li><a href="#socials" class="text-gray-400 hover:text-red-300 transition">Socials</a></li>
-            </ul>
         </div>
     </nav>
 
-    <section id="home" class="min-h-screen flex items-center container mx-auto px-4 pt-16" data-aos="fade-up">
-        <div>
-            <h1 class="text-6xl font-bold mb-4 text-white">
-                Hello, I'm <span class="glow">Rafael Eusébio</span>
-            </h1>
-            <h2 class="text-3xl text-gray-400 mb-6">
-                Ethical Hacker | Tech Enthusiast
-            </h2>
-            <p class="max-w-2xl text-gray-300 mb-8">
-                Passionate about Internet safety and pushing the boundaries of technology.
-            </p>
-            <div class="flex space-x-4">
-                <a href="#contact" class="btn">
-                    Contact Me
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <section id="about" class="py-16" data-aos="fade-up">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 text-white">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="w-full md:w-1/2 relative group">
-                    <img 
-                        src="https://raw.githubusercontent.com/d6fault/d6fault.github.io/refs/heads/main/p.jpeg" 
-                        alt="Profile" 
-                        class="relative z-10 rounded-xl shadow-lg w-full transform transition-transform group-hover:scale-105 floating"
-                    >
-                </div>
-                <div class="w-full md:w-1/2 space-y-6">
-                    <div class="card p-6">
-                        <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
-                            <i class="fas fa-user-circle text-red-500 mr-3"></i>
-                            Who I Am
-                        </h3>
-                        <p class="text-gray-300 mb-4">
-                            Rafael Eusébio, known online as D6fault, is a 13-year-old Brazilian cybersecurity prodigy whose determination and drive are propelling him to the forefront of the cybersecurity field. Starting his journey at just 11, Rafael has already earned a spot among the Top 1000 globally on TryHackMe and is ranked in the Top 90 in Brazil.
+    <main>
+        <section id="home" class="min-h-screen flex items-center pt-20">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="max-w-3xl">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                            Turning Complex Security <span class="gradient-text">Into Simple Solutions</span>
+                        </h1>
+                        <h2 class="text-2xl text-gray-400 mb-8">
+                            Cybersecurity Specialist & Software Developer
+                        </h2>
+                        <p class="text-lg text-gray-500 mb-8 leading-relaxed">
+                            At just 13, I've already made my mark in cybersecurity, ranking in the Top 1000 globally on TryHackMe. 
+                            Specializing in ethical hacking, penetration testing, and secure software development.
                         </p>
-                        <p class="text-gray-300 mb-4">
-                            Recognized as a cybersecurity guru, Rafael has earned praise from some of the biggest names in the industry, including Srhoe, a well-known figure with over 700k followers and a massive cybersecurity Discord server Owlsec. Srhoe and others like 0day aka Ryan Montgomery have publicly acknowledged Rafael’s extraordinary skills, reinforcing his status as a rising star in the cybersecurity community.
-                        </p>
-                        <p class="text-gray-300 mb-4">
-                            As D6fault, Rafael’s growing influence extends beyond his technical expertise in ethical hacking and vulnerability detection. His high level of determination, combined with his extensive network of industry professionals, fellow hackers, and aspiring cybersecurity enthusiasts, has allowed him to collaborate on high-level projects and share his knowledge with a wider audience. His network is a powerful asset that not only helps him grow but also enables him to mentor and inspire others in the community.
-                        </p>
-                        <p class="text-gray-300 mb-4">
-                            Rafael’s passion for cybersecurity, fueled by his unrelenting desire to understand and protect digital systems, is matched by his commitment to educating others. Through his tutorials, live hacking sessions, and security tips, he’s building a community of like-minded individuals who are all eager to learn and grow in the field.
-                        </p>
-                        <p class="text-gray-300 mb-4">
-                            With his extensive network, relentless determination, and ever-expanding influence, Rafael is poised to become a leading voice in the cybersecurity industry, shaping the future of digital security and inspiring the next generation of cyber defenders.
-                        </p>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="card p-5">
-                            <h4 class="font-bold text-red-500 mb-3 flex items-center">
-                                <i class="fas fa-cogs text-red-500 mr-3"></i>
-                                Skills
-                            </h4>
-                            <ul class="text-gray-400 space-y-2">
-                                <li class="flex items-center">
-                                    <i class="fas fa-code text-green-500 mr-2"></i>
-                                    C
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fab fa-python text-yellow-500 mr-2"></i>
-                                    Python
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-code text-gray-500 mr-2"></i>
-                                    ASM
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-terminal text-gray-400 mr-2"></i>
-                                    Shell Script
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fab fa-golang text-blue-500 mr-2"></i>
-                                    Go Lang
-                                </li>
-                            </ul>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#projects" class="btn btn-primary">
+                                <i class="fas fa-code-branch mr-2"></i>
+                                View My Work
+                            </a>
+                            <a href="#contact" class="btn btn-outline">
+                                <i class="fas fa-envelope mr-2"></i>
+                                Get in Touch
+                            </a>
                         </div>
-                        <div class="card p-5">
-                            <h4 class="font-bold text-red-500 mb-3 flex items-center">
-                                <i class="fas fa-tools text-red-500 mr-3"></i>
-                                Tools
-                            </h4>
-                            <ul class="text-gray-400 space-y-2">
-                                <li class="flex items-center">
-                                    <i class="fab fa-vmware text-blue-500 mr-2"></i>
-                                    VMware
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fab fa-linux text-green-500 mr-2"></i>
-                                    QEMU/KVM
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fab fa-linux text-yellow-500 mr-2"></i>
-                                    Kali Linux
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fab fa-ubuntu text-red-500 mr-2"></i>
-                                    Metasploit
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-bug text-orange-500 mr-2"></i>
-                                    Burp Suite
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-network-wired text-blue-400 mr-2"></i>
-                                    Wireshark
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-sitemap text-green-400 mr-2"></i>
-                                    Nmap
-                                </li>
-                            </ul>
+                        <div class="mt-12 flex items-center gap-8">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold gradient-text">Top 1000</div>
+                                <div class="text-sm text-gray-400">Global Rank</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold gradient-text">Top 90</div>
+                                <div class="text-sm text-gray-400">Brazil Rank</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold gradient-text">2+ Years</div>
+                                <div class="text-sm text-gray-400">Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative hidden md:block">
+                        <div class="profile-container">
+                            <div class="floating">
+                                <div class="profile-image-wrapper">
+                                    <img 
+                                        src="https://raw.githubusercontent.com/d6fault/d6fault.github.io/refs/heads/main/p.jpeg" 
+                                        alt="Profile" 
+                                        class="profile-image"
+                                    >
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
+        </section>
 
+        <section id="about" class="py-20 bg-slate-900/50">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Passionate about cybersecurity and continuous learning</p>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-start mt-12">
+                    <div class="space-y-8">
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4 gradient-text">Journey & Achievements</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Starting my cybersecurity journey at age 11, I've quickly established myself in the field through 
+                                dedication and continuous learning. My achievements include ranking in the Top 1000 globally on 
+                                TryHackMe and maintaining a position in Brazil's Top 90 security professionals.
+                            </p>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-xl font-semibold mb-4 gradient-text">Areas of Expertise</h3>
+                            <ul class="space-y-3 text-gray-400">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle mr-2 text-primary-500"></i>
+                                    Penetration Testing & Vulnerability Assessment
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle mr-2 text-primary-500"></i>
+                                    Secure Software Development
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle mr-2 text-primary-500"></i>
+                                    Network Security & System Hardening
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle mr-2 text-primary-500"></i>
+                                    Malware Analysis & Reverse Engineering
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="card">
+                            <h4 class="text-xl font-semibold mb-4 gradient-text">Technical Arsenal</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <h5 class="font-semibold mb-3 text-gray-300">Languages</h5>
+                                    <div class="space-y-2">
+                                        <div class="skill-item">
+                                            <i class="fas fa-code"></i>
+                                            <span>C/C++</span>
+                                        </div>
+                                        <div class="skill-item">
+                                            <i class="fab fa-python"></i>
+                                            <span>Python</span>
+                                        </div>
+                                        <div class="skill-item">
+                                            <i class="fas fa-microchip"></i>
+                                            <span>Assembly</span>
+                                        </div>
+                                        <div class="skill-item">
+                                            <i class="fab fa-golang"></i>
+                                            <span>Go</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold mb-3 text-gray-300">Tools & Platforms</h5>
+                                    <div class="space-y-2">
+                                        <div class="skill-item">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <span>Metasploit</span>
+                                        </div>
+                                        <div class="skill-item">
+                                            <i class="fas fa-bug"></i>
+                                            <span>Burp Suite</span>
+                                        </div>
+                                        <div class="skill-item">
+                                            <i class="fab fa-linux"></i>
+                                            <span>Kali Linux</span>
+                                        </div>
+                                        <div class="skill-item">
+                                            <i class="fas fa-network-wired"></i>
+                                            <span>Wireshark</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-    <section id="blog" class="py-16" data-aos="fade-up">
+                        <div class="card">
+                            <h4 class="text-xl font-semibold mb-6 gradient-text">Skills Proficiency</h4>
+                            
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-info">
+                                    <span class="text-gray-300">Penetration Testing</span>
+                                    <span class="text-gray-400">85%</span>
+                                </div>
+                                <div class="skill-progress-bar">
+                                    <div class="skill-progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-info">
+                                    <span class="text-gray-300">Web Application Security</span>
+                                    <span class="text-gray-400">80%</span>
+                                </div>
+                                <div class="skill-progress-bar">
+                                    <div class="skill-progress-fill" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-info">
+                                    <span class="text-gray-300">Network Security</span>
+                                    <span class="text-gray-400">75%</span>
+                                </div>
+                                <div class="skill-progress-bar">
+                                    <div class="skill-progress-fill" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-info">
+                                    <span class="text-gray-300">Privilege Escalation</span>
+                                    <span class="text-gray-400">75%</span>
+                                </div>
+                                <div class="skill-progress-bar">
+                                    <div class="skill-progress-fill" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-info">
+                                    <span class="text-gray-300">OSINT</span>
+                                    <span class="text-gray-400">60%</span>
+                                </div>
+                                <div class="skill-progress-bar">
+                                    <div class="skill-progress-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-progress-container">
+                                <div class="skill-progress-info">
+                                    <span class="text-gray-300">Enumeration</span>
+                                    <span class="text-gray-400">85%</span>
+                                </div>
+                                <div class="skill-progress-bar">
+                                    <div class="skill-progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h4 class="text-xl font-semibold mb-4 gradient-text">Current Focus</h4>
+                            <p class="text-gray-400 mb-4">
+                                Currently focusing on advanced penetration testing techniques and expanding my knowledge in:
+                            </p>
+                            <div class="space-y-2">
+                                <div class="skill-item">
+                                    <i class="fas fa-brain"></i>
+                                    <span>Red Team Operations</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-lock"></i>
+                                    <span>Application Security</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-robot"></i>
+                                    <span>Automation & Scripting</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">Professional Roadmap</h2>
+                <p class="section-subtitle">Building a strong foundation in cybersecurity through recognized certifications</p>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+                    <div class="card">
+                        <div class="flex items-start mb-4">
+                            <div class="p-3 rounded-lg bg-primary-500/10 mr-4">
+                                <i class="fas fa-award text-2xl gradient-text"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-2">CompTIA A+</h3>
+                                <p class="text-sm text-gray-400">Target: 2024</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400">Foundation in hardware, networking, and system troubleshooting.</p>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-start mb-4">
+                            <div class="p-3 rounded-lg bg-primary-500/10 mr-4">
+                                <i class="fas fa-shield-alt text-2xl gradient-text"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-2">CompTIA Security+</h3>
+                                <p class="text-sm text-gray-400">Target: 2025</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400">Core cybersecurity concepts and best practices.</p>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-start mb-4">
+                            <div class="p-3 rounded-lg bg-primary-500/10 mr-4">
+                                <i class="fas fa-user-secret text-2xl gradient-text"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-2">PJPT</h3>
+                                <p class="text-sm text-gray-400">Target: 2025</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400">Practical penetration testing fundamentals.</p>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-start mb-4">
+                            <div class="p-3 rounded-lg bg-primary-500/10 mr-4">
+                                <i class="fas fa-network-wired text-2xl gradient-text"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-2">PNPT</h3>
+                                <p class="text-sm text-gray-400">Target: 2026</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400">Advanced network penetration testing skills.</p>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-start mb-4">
+                            <div class="p-3 rounded-lg bg-primary-500/10 mr-4">
+                                <i class="fas fa-flag text-2xl gradient-text"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-2">CRTO</h3>
+                                <p class="text-sm text-gray-400">Target: 2027</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400">Advanced red team operations and tactics.</p>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-start mb-4">
+                            <div class="p-3 rounded-lg bg-primary-500/10 mr-4">
+                                <i class="fas fa-crown text-2xl gradient-text"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-2">OSCP</h3>
+                                <p class="text-sm text-gray-400">Target: 2028</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400">The gold standard in penetration testing certification.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 bg-slate-900/50">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Exploring cybersecurity through practical applications and research</p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+                    <!-- KittyShell Project -->
+                    <div class="project-card" data-aos="fade-up">
+                        <div class="project-status">Active</div>
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2934&q=80" 
+                             alt="KittyShell" 
+                             class="project-image">
+                        <div class="project-content">
+                            <h3 class="text-xl font-semibold mb-2 gradient-text">KittyShell</h3>
+                            <p class="text-gray-400 text-sm">
+                                A powerful reverse shell listener built in Python that enables secure remote command execution. Features SSL encryption, customizable networking options, and built-in security checks.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Reverse Shell</span>
+                                <span class="project-tag">Pentesting</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/d6fault/KittyShell" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                    View Code
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-book"></i>
+                                    Documentation
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- OSXScan Project -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="50">
+                        <div class="project-status">New</div>
+                        <img src="https://images.unsplash.com/photo-1526666923127-b2970f64b422?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" 
+                             alt="OSXScan" 
+                             class="project-image">
+                        <div class="project-content">
+                            <h3 class="text-xl font-semibold mb-2 gradient-text">OSXScan</h3>
+                            <p class="text-gray-400 text-sm">
+                                A comprehensive macOS security assessment tool that identifies vulnerabilities and misconfigurations in system settings, applications, and permissions.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Shell</span>
+                                <span class="project-tag">macOS Security</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/d6fault/OSXScan" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                    View Code
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-download"></i>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- APTF - Apple Pen-Testing Framework -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-status">In Progress</div>
+                        <img src="https://images.unsplash.com/photo-1562813733-b31f71025d54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2169&q=80" 
+                             alt="APTF" 
+                             class="project-image">
+                        <div class="project-content">
+                            <h3 class="text-xl font-semibold mb-2 gradient-text">APTF</h3>
+                            <p class="text-gray-400 text-sm">
+                                A comprehensive macOS framework that automates the setup of penetration testing environments by installing and configuring essential security tools from Homebrew.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Shell</span>
+                                <span class="project-tag">macOS</span>
+                                <span class="project-tag">Pentesting</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/d6fault/APTF" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                    Repository
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-book"></i>
+                                    Documentation
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="https://github.com/d6fault" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-github mr-2"></i>
+                        View More Projects
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">What People Say</h2>
+                <p class="section-subtitle">Feedback from mentors and collaborators in the cybersecurity community</p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="text-gray-400 mb-6">
+                                "D6fault's grasp of cybersecurity at just 14 is extraordinary. His natural talent for penetration testing, combined with genuine dedication to mastering new tools and solving complex problems, sets him apart. His willingness to share knowledge and help others makes him a true asset to the cybersecurity community."
+                            </p>
+                            <div class="testimonial-author flex items-center">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtAXivs6z2NWnZ5IK9DXcujnXkp1ozZhJIkA&s" alt="Curtis snively" class="testimonial-avatar mr-4">
+                                <div>
+                                    <h4 class="font-semibold gradient-text">Curtis snively</h4>
+                                    <p class="text-sm text-gray-400">Cybersecurity Veteran & Influencer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-slate-900/50">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">Open to collaboration and learning opportunities</p>
+                
+                <div class="max-w-3xl mx-auto mt-12">
+                    <div class="card">
+                        <div class="text-center mb-8">
+                            <div class="inline-block p-4 rounded-full bg-primary-500/10 mb-4">
+                                <i class="fas fa-envelope text-3xl gradient-text"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-4">Get in Touch</h3>
+                            <p class="text-gray-400 mb-6">
+                                Whether you're interested in collaboration, or just want to connect,
+                                I'm always open to new opportunities and discussions.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <a href="mailto:D6fault@proton.me" class="btn btn-primary">
+                                <i class="fas fa-envelope mr-2"></i>
+                                Send Email
+                            </a>
+                            <a href="https://discordlookup.com/user/1319715727405617245" target="_blank" class="btn btn-outline">
+                                <i class="fab fa-discord mr-2"></i>
+                                Discord
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 border-t border-slate-800 bg-slate-900/80 backdrop-blur-md">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 text-white">My Blog</h2>
-            <p class="text-center text-gray-300 mb-6">
-                Welcome to my blog! Here, I share insights, tutorials, and write-ups on various topics related to cybersecurity,
-                programming, and technology. Explore my latest posts to enhance your knowledge and stay updated.
-            </p>
-            <div class="text-center">
-                <a href="blog.html" class="btn">THIS IS NOT AVAILABLE AS OF NOW</a>
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">© 2024 Rafael Eusébio. All Rights Reserved.</p>
+                <div class="flex flex-wrap justify-center gap-4 mt-4 md:mt-0">
+                    <a href="https://tryhackme.com/p/D6fault" target="_blank" class="social-link">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        TryHackMe
+                    </a>
+                    <a href="https://discordlookup.com/user/1319715727405617245" target="_blank" class="social-link">
+                        <i class="fab fa-discord mr-2"></i>
+                        Discord
+                    </a>
+                    <a href="https://www.instagram.com/d6fault0day" target="_blank" class="social-link">
+                        <i class="fab fa-instagram mr-2"></i>
+                        Instagram
+                    </a>
+                </div>
             </div>
         </div>
-    </section>
-
-<section id="project-2031" class="py-16" data-aos="fade-up">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-12 text-white">Project 2031</h2>
-        <p class="text-center text-gray-300 mb-6">
-            By 2031, I aim to achieve the following certifications to solidify my expertise in cybersecurity and ethical hacking. This is my roadmap to mastery.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="card p-6">
-                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
-                    <i class="fas fa-certificate text-red-500 mr-3"></i>
-                    CompTIA A+
-                </h3>
-                <p class="text-gray-300">
-                    The foundational certification for IT professionals, covering hardware, networking, and troubleshooting.
-                </p>
-            </div>
-            <div class="card p-6">
-                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
-                    <i class="fas fa-certificate text-red-500 mr-3"></i>
-                    CompTIA Security+
-                </h3>
-                <p class="text-gray-300">
-                    A globally recognized certification validating baseline cybersecurity skills.
-                </p>
-            </div>
-            <div class="card p-6">
-                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
-                    <i class="fas fa-certificate text-red-500 mr-3"></i>
-                    PJPT (Practical Junior Penetration Tester)
-                </h3>
-                <p class="text-gray-300">
-                    A hands-on certification focusing on penetration testing fundamentals.
-                </p>
-            </div>
-            <div class="card p-6">
-                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
-                    <i class="fas fa-certificate text-red-500 mr-3"></i>
-                    PNPT (Practical Network Penetration Tester)
-                </h3>
-                <p class="text-gray-300">
-                    An advanced certification for network penetration testing and exploitation.
-                </p>
-            </div>
-            <div class="card p-6">
-                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
-                    <i class="fas fa-certificate text-red-500 mr-3"></i>
-                    CRTO (Certified Red Team Operator)
-                </h3>
-                <p class="text-gray-300">
-                    A certification focused on red teaming and adversary simulation.
-                </p>
-            </div>
-            <div class="card p-6">
-                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
-                    <i class="fas fa-certificate text-red-500 mr-3"></i>
-                    OSCP (Offensive Security Certified Professional)
-                </h3>
-                <p class="text-gray-300">
-                    The gold standard for penetration testing certifications, emphasizing hands-on skills.
-                </p>
-            </div>
-            <div class="card p-6">
-                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
-                    <i class="fas fa-certificate text-red-500 mr-3"></i>
-                    OSEP (Offensive Security Experienced Penetration Tester)
-                </h3>
-                <p class="text-gray-300">
-                    An advanced certification focusing on evasion techniques and advanced exploitation.
-                </p>
-            </div>
-            <div class="card p-6">
-                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
-                    <i class="fas fa-certificate text-red-500 mr-3"></i>
-                    OSWP (Offensive Security Wireless Professional)
-                </h3>
-                <p class="text-gray-300">
-                    A certification specializing in wireless network penetration testing.
-                </p>
-            </div>
-            <div class="card p-6">
-                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
-                    <i class="fas fa-certificate text-red-500 mr-3"></i>
-                    OSED (Offensive Security Exploit Developer)
-                </h3>
-                <p class="text-gray-300">
-                    A certification focused on exploit development and advanced reverse engineering.
-                </p>
-            </div>
-            <div class="card p-6">
-                <h3 class="text-2xl font-semibold mb-4 text-red-500 flex items-center">
-                    <i class="fas fa-certificate text-red-500 mr-3"></i>
-                    OSEE (Offensive Security Exploitation Expert)
-                </h3>
-                <p class="text-gray-300">
-                    The pinnacle of Offensive Security certifications, focusing on advanced exploitation techniques.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <section id="socials" class="py-16" data-aos="fade-up">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 text-white">Socials</h2>
-            <div class="flex justify-center space-x-6">
-                <a href="https://tryhackme.com/p/D6fault" target="_blank" class="flex items-center text-red-500 hover:text-red-300 transition">
-                    <i class="fab fa-tryhackme fa-2x mr-2"></i>
-                    TryHackMe
-                </a>
-                <a href="https://discordlookup.com/user/1319715727405617245" target="_blank" class="flex items-center text-red-500 hover:text-red-300 transition">
-                    <i class="fab fa-discord fa-2x mr-2"></i>
-                    Discord
-                </a>
-                <a href="https://www.instagram.com/d6fault0day" target="_blank" class="flex items-center text-red-500 hover:text-red-300 transition">
-                    <i class="fab fa-instagram fa-2x mr-2"></i>
-                    Instagram
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-16" data-aos="fade-up">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 text-white">Contact Me</h2>
-            <div class="max-w-2xl mx-auto card p-8 text-center">
-                <h3 class="text-2xl text-red-500 mb-4">Get In Touch</h3>
-                <p class="text-gray-300 mb-4">Feel free to reach out via email:</p>
-                <a 
-                    href="mailto:D6fault@proton.me" 
-                    class="text-3xl text-white hover:text-red-500 transition duration-300 flex items-center justify-center"
-                >
-                    <i class="fas fa-envelope fa-2x mr-3 text-red-500"></i>
-                </a>
-                <p class="text-gray-300 mt-4">I look forward to connecting with you!</p>
-            </div>
-        </div>
-    </section>
+    </footer>
 
     <button id="scrollToTop" class="scroll-to-top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <footer class="bg-black/30 py-8">
-        <div class="container mx-auto text-center">
-            <p class="text-gray-400">
-                © 2025 Rafael Eusébio. All Rights Reserved.
-            </p>
-        </div>
-    </footer>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
     <script>
-        window.onload = function() {
-            document.getElementById("loading").classList.add("hidden");
-            const loadTime = performance.now();
-            console.log(`Page loaded in ${loadTime.toFixed(2)} milliseconds`);
-        };
-
-        AOS.init();
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
 
         const scrollToTopButton = document.getElementById('scrollToTop');
         window.onscroll = function() {
             if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                scrollToTopButton.style.display = "flex";
+                scrollToTopButton.classList.add('visible');
             } else {
-                scrollToTopButton.style.display = "none";
+                scrollToTopButton.classList.remove('visible');
             }
         };
 
         scrollToTopButton.onclick = function() {
             window.scrollTo({top: 0, behavior: 'smooth'});
         };
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        particlesJS('particles-js',
+        {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#4f46e5"
+                },
+                "shape": {
+                    "type": "circle"
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true
+                },
+                "size": {
+                    "value": 3,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#4f46e5",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 0.5
+                        }
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
     </script>
 
     <script>
-        document.getElementById("terminal-input").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        const input = event.target.value;
-        const outputArea = document.getElementById("output");
-
-        outputArea.innerHTML += `<span class="text-red-500">d6fault@portfolio:~$ ${input}</span><br/>`;
-
-        handleCommand(input.toLowerCase().trim());
-
-        outputArea.scrollTop = outputArea.scrollHeight;
-
-        event.target.value = '';
-    }
-});
-
-
-
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress-fill');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetWidth = entry.target.getAttribute('style').match(/width: (\d+)%/)[1] + '%';
+                        entry.target.style.width = '0%';
+                        
+                        setTimeout(() => {
+                            entry.target.style.width = targetWidth;
+                        }, 100);
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            skillBars.forEach(bar => {
+                observer.observe(bar);
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            animateSkillBars();
+        });
     </script>
 </body>
 </html>
