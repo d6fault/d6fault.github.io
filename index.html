@@ -22,8 +22,6 @@
     }
     </script>
 
-
-
     <style>
         body::after {
             content: " ";
@@ -87,12 +85,6 @@
             opacity: 1;
         }
 
-        .rip-section { border-top: 1px solid #333; padding-top: 60px; text-align: center; }
-        .legacy-banner { font-size: 1rem; letter-spacing: 8px; margin-bottom: 40px; font-weight: bold; display: block; color: #888; }
-
-        .rip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px; margin-top: 30px; font-size: 1rem; color: #888; }
-        .rip-grid span:hover { color: #ffffff; cursor: default; }
-
         footer { text-align: center; font-size: 0.9rem; margin-top: 150px; color: #555; border-top: 1px solid #222; padding-top: 40px; padding-bottom: 60px; }
         
         .blink { animation: blinker 1s steps(2, start) infinite; }
@@ -107,7 +99,7 @@
         <div id="type-banner" class="ascii-banner"></div>
     </header>
 
-<article>
+    <article>
         <h2>[ 01_OVERVIEW ]</h2>
         <div class="bio-text">
             <p>
@@ -131,13 +123,15 @@
 
     <footer>
         <br>
-        2026.02.14 <span class="blink">_</span>
+        TOTAL_VIEWS: [<span id="visits">0000</span>]
+        <br>
+        2026.04.06 <span class="blink">_</span>
     </footer>
 </main>
 
 <script>
-    const artLines = ["             )~                                                                        !            ","             .%q;                                                                    C@?            ","              q@@Y'                                                                n%B8.            ","             ')@@@@Cl                                                           :L@BBB).            ","               o@@@@@Zl\"                                                    . +8B@@@@p              ","               :&B$@Wz$avk~'  .                                        . .\"w@]kB@@@@B?              ","                xB@@`W@@\\@B@@%Z>                                      LB%@B@dU]@@@@B/               ","                .X$r%@@@c@@$@@@@BYCYJZn<                     \"jLkx%B@@@@@@@#!BXo@@@L'               ","                 ./U@@@@c#@@@@B@wO@@v@@@B@@$@BBBk(YZW8B@@@$@@@@%;[*@@@@@$@Bx%Baf@BC                 ","                   v@@B@hn@@@@@UxBB%wz@@@@@@@@@@|8Bt%@$@$@@@@@Bc*%_&$@@@@BLQB@@|kC                  ","                    }%@@% B@@$onB@@@@xk@@@@@@@B&nB@Xh@@@@$@@BB*|BBkLB@@@@kv@@@@%\"                   ","                     ;aB%xa@@wx@@@@@@WuB@@$@@@@_*@@Wi%B@@@@@B&<%%@@|b%@$BtB$@@b\"                    ","                       tB*X@o\\B@@@@@$@YO@@@@@@bY@@@@0ZBB@@@@@Jo@@@@@/@BB/h@BBr                      ","                       ..OY*x@@@@$@$@$@f8@@@@@v@@@@@@v@$@@@@a{@@@@@@pX@hJB@0                        ","                         . !%@@$$@@$@@@hU@@@@a\\@@@@@@xh@@@BBt%@@@@@@Bnql&O.                         ","                             -BB$@@$$@@@/k@@BiW$@@@@@B;B@@@LkB@@@@@@B@])                            ","                               \"t%@@@@@@@j@Bq0@@@@@@@@00BBqrB@@@@B@%n^.                             ","                               . .'~m%@@@0pB\\&@@@@@@@@8x@@uBB@@@Z+'..                               ","                                       I-viQJ@$@@@@@@@@Xwr0Y?I"];
-    const bannerLines = [" mmmmm        mmmm    mmmmmmmm    mm     mm    mm  mm        mmmmmmmm "," ##\"\"\"##    ##\"\"\"#   ##\"\"\"\"\"\"    ####    ##    ##  ##        \"\"\"##\"\"\" "," ##    ##  ## mmm    ##          ####    ##    ##  ##           ##    "," ##    ##  ###\"\"##m  #######     ##  ##   ##    ##  ##           ##    "," ##    ##  ##    ##  ##          ######   ##    ##  ##           ##    "," ##mmm##   \"##mm##\"  ##         m##  ##m  \"##mm##\"  ##mmmmmm     ##    "," \"\"\"\"\"        \"\"\"\"    \"\"         \"\"    \"\"    \"\"\"\"    \"\"\"\"\"\"\"\"     \"\"    "];
+    const artLines = ["             )~                                                                  !             ","             .%q;                                                             C@?             ","              q@@Y'                                                            n%B8.             ","             ')@@@@Cl                                                            :L@BBB).             ","                o@@@@@Zl\"                                                     . +8B@@@@p               ","                :&B$@Wz$avk~'  .                                        . .\"w@]kB@@@@B?               ","                 xB@@`W@@\\@B@@%Z>                                        LB%@B@dU]@@@@B/                ","                 .X$r%@@@c@@$@@@@BYCYJZn<                      \"jLkx%B@@@@@@@#!BXo@@@L'                ","                  ./U@@@@c#@@@@B@wO@@v@@@B@@$@BBBk(YZW8B@@@$@@@@%;[*@@@@@$@Bx%Baf@BC                 ","                    v@@B@hn@@@@@UxBB%wz@@@@@@@@@@|8Bt%@$@$@@@@@Bc*%_&$@@@@BLQB@@|kC                  ","                     }%@@% B@@$onB@@@@xk@@@@@@@B&nB@Xh@@@@$@@BB*|BBkLB@@@@kv@@@@%\"                   ","                      ;aB%xa@@wx@@@@@@WuB@@$@@@@_*@@Wi%B@@@@@B&<%%@@|b%@$BtB$@@b\"                    ","                        tB*X@o\\B@@@@@$@YO@@@@@@bY@@@@0ZBB@@@@@Jo@@@@@/@BB/h@BBr                      ","                        ..OY*x@@@@$@$@$@f8@@@@@v@@@@@@v@$@@@@a{@@@@@@pX@hJB@0                        ","                          . !%@@$$@@$@@@hU@@@@a\\@@@@@@xh@@@BBt%@@@@@@Bnql&O.                         ","                               -BB$@@$$@@@/k@@BiW$@@@@@B;B@@@LkB@@@@@@B@])                            ","                                \"t%@@@@@@@j@Bq0@@@@@@@@00BBqrB@@@@B@%n^.                              ","                                . .'~m%@@@0pB\\&@@@@@@@@8x@@uBB@@@Z+'..                               ","                                        I-viQJ@$@@@@@@@@Xwr0Y?I"];
+    const bannerLines = [" mmmmm         mmmm    mmmmmmmm    mm     mm    mm  mm         mmmmmmmm "," ##\"\"\"##    ##\"\"\"#    ##\"\"\"\"\"\"    ####    ##    ##  ##         \"\"\"##\"\"\" "," ##    ##  ## mmm    ##          ####    ##    ##  ##            ##    "," ##    ##  ###\"\"##m  #######     ##  ##   ##    ##  ##            ##    "," ##    ##  ##    ##  ##          ######   ##    ##  ##            ##    "," ##mmm##    \"##mm##\"  ##          m##  ##m  \"##mm##\"  ##mmmmmm      ##    "," \"\"\"\"\"        \"\"\"\"    \"\"          \"\"    \"\"    \"\"\"\"    \"\"\"\"\"\"\"\"      \"\"    "];
 
     function fastType(lines, elementId, speed) {
         let lineIdx = 0;
@@ -156,7 +150,13 @@
         fastType(artLines, "type-art", 20); 
         setTimeout(() => fastType(bannerLines, "type-banner", 30), 400);
     };
+
+    function cb(response) {
+        document.getElementById('visits').innerText = response.value.toLocaleString();
+    }
 </script>
+
+<script async src="https://api.countapi.xyz/hit/d6fault.dev/total_views?callback=cb"></script>
 
 </body>
 </html>
