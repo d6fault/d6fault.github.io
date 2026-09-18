@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D6fault | Blog</title>
+<meta name="description" content="Blog of D6fault: security research writeups and firmware analysis.">
+<link rel="me" href="https://www.youtube.com/@D6faultCTF">
+<style>
+:root {
+    --bg: #050505;
+    --line: #1c1c1c;
+    --line-2: #2a2a2a;
+    --text: #f5f5f5;
+    --muted: #a3a3a3;
+    --dim: #5c5c5c;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+::selection { background: #fff; color: #000; }
+main { max-width: 840px; margin: 0 auto; padding: 70px 28px 0; }
+.back-link {
+    color: var(--dim);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: 0.15s;
+}
+.back-link:hover { color: #fff; }
+.heading { margin: 46px 0 54px; }
+.back-link + .heading .title { margin-top: 0; }
+h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0 0 8px;
+}
+h1 span { color: var(--dim); margin-right: 12px; }
+.sub { color: var(--dim); font-size: 0.85rem; }
+.body-label {
+    color: var(--dim);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 0;
+}
+.post-row {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    gap: 30px;
+    align-items: baseline;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--line);
+    transition: 0.15s;
+}
+.post-row:hover { padding-left: 12px; }
+.post-row .date { color: var(--dim); font-size: 0.8rem; }
+.post-row h3 { font-size: 1.05rem; font-weight: 400; }
+.post-row h3 a { text-decoration: none; transition: 0.15s; }
+.post-row h3 a:hover { color: var(--dim); }
+.post-row .tags { color: var(--dim); font-size: 0.75rem; letter-spacing: 1px; }
+footer {
+    text-align: center;
+    color: var(--dim);
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 60px 0;
+}
+@media (max-width: 700px) {
+    .post-row { grid-template-columns: 1fr; gap: 8px; }
+}
+</style>
+</head>
+<body>
+<main>
+    <a class="back-link" href="../index.html">&larr; d6//fault</a>
+    <div class="heading">
+        <h1><span>03</span>Blog</h1>
+        <p class="sub">archive of security research writeups &amp; firmware analysis</p>
+    </div>
+    <div class="body-label">posts</div>
+
+    <div class="post-row">
+        <span class="date">2026.02.14</span>
+        <h3><a href="dlink-dap1360-os-command-injection.html">OS Command Injection in D-Link DAP-1360 formSystemCheck Handler</a></h3>
+        <span class="tags">firmware / cmdi / dlink</span>
+    </div>
+</main>
+<footer>&copy; 2026 &mdash; d6fault</footer>
+</body>
+</html>
