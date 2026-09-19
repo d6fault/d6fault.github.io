@@ -1,0 +1,39 @@
+# D6fault — Security Researcher & YouTuber
+
+> Official site of D6fault (https://d6fault.dev): an American security researcher specializing in vulnerability discovery and responsible disclosure in government and corporate systems, with educational cybersecurity content on YouTube.
+
+D6fault began practical training on TryHackMe at age 13 (300+ rooms completed) and by 14 had reported security issues affecting U.S. government entities including the Department of Defense, Department of Education, and Department of Health and Human Services. Focus areas: web application security, penetration testing, firmware exploitation, ethical disclosure.
+
+## Pages
+
+- [Home](https://d6fault.dev/): Overview of research, CVEs, publications, and hall-of-fame listings.
+- [Blog](https://d6fault.dev/blog/): Technical vulnerability write-ups and disclosure reports.
+
+## Key content
+
+### Published CVEs
+
+- CVE-2026-23695 — Stored XSS in Cockpit CMS <= 2.14.0 (Set field type Display template; Vue v-html; authenticated). Severity: medium. https://nvd.nist.gov/vuln/detail/CVE-2026-23695
+- CVE-2026-46393 — SSRF in @haxtheweb/haxcms-nodejs via the authenticated createSite endpoint. Severity: high, 7.1. https://nvd.nist.gov/vuln/detail/CVE-2026-46393
+- CVE-2026-46401 — Session fixation in HAXcms < 26.0.0: tokens remain valid after logout, enabling hijacking. Severity: medium, 5.3. https://nvd.nist.gov/vuln/detail/CVE-2026-46401
+
+### Write-ups
+
+- [OS Command Injection in D-Link DAP-1360 formSystemCheck Handler](https://d6fault.dev/blog/dlink-dap1360-os-command-injection/): Unauthenticated pre-auth root RCE via command injection in bin/httpd's formSystemCheck handler at POST /apply.cgi?formSystemCheck; tested on latest firmware (Rev. F, v6.14b01).
+
+### Hall of Fame
+
+- HackerOne (VDP), 2025 — https://hackerone.com/d6fault
+- Synack / hhs.gov Responsible Disclosure acknowledgments, 2025
+
+## Profiles
+
+- YouTube: https://www.youtube.com/@D6faultCTF
+- HackerOne: https://hackerone.com/d6fault
+- GitHub: https://github.com/d6fault
+- X: https://x.com/d6fault1337
+- Instagram: https://instagram.com/d6fault1337
+
+## Contact / licensing
+
+Public disclosures only. For security research questions, reach out via the listed social profiles.
