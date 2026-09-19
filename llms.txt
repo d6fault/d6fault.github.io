@@ -1,8 +1,8 @@
 # D6fault — Security Researcher & YouTuber
 
-> Official site of D6fault (https://d6fault.dev): an American security researcher specializing in vulnerability discovery and responsible disclosure in government and corporate systems, with educational cybersecurity content on YouTube.
+> Official site of D6fault (https://d6fault.dev): an American security researcher specializing in ICS/OT security, firmware reverse engineering, and responsible disclosure in government and corporate systems, with educational cybersecurity content on YouTube.
 
-D6fault began practical training on TryHackMe at age 13 (300+ rooms completed) and by 14 had reported security issues affecting U.S. government entities including the Department of Defense, Department of Education, and Department of Health and Human Services. Focus areas: web application security, penetration testing, firmware exploitation, ethical disclosure.
+D6fault began practical training on TryHackMe at age 13 (300+ rooms completed) and by 14 had reported security issues affecting U.S. government entities including the Department of Defense, Department of Education, and Department of Health and Human Services. Focus areas: ICS/OT security, firmware reverse engineering, web application security, penetration testing, ethical disclosure.
 
 ## Pages
 
