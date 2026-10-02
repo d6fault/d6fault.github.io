@@ -2,7 +2,7 @@
 
 > Official site of D6fault (https://d6fault.dev): an American security researcher specializing in web security, ICS/OT security, firmware reverse engineering, and responsible disclosure in government and corporate systems
 
-D6fault began practical training on TryHackMe at age 13 (300+ rooms completed) and by 14 had reported security issues affecting U.S. government entities including the Department of Defense, Department of Education, and Department of Health and Human Services. Focus areas: ICS/OT security, firmware reverse engineering, web application security, penetration testing, ethical disclosure.
+D6fault began practical training on TryHackMe at age 13 (300+ rooms completed) and by 14 had reported security issues affecting U.S. government entities including the Department of Defense, Department of Education, Department of Health and Human Services, and the Department of Energy. Focus areas: ICS/OT security, firmware reverse engineering, web application security, penetration testing, ethical disclosure.
 
 ## Pages
 
@@ -16,6 +16,7 @@ D6fault began practical training on TryHackMe at age 13 (300+ rooms completed) a
 - CVE-2026-23695 — Stored XSS in Cockpit CMS <= 2.14.0 (Set field type Display template; Vue v-html; authenticated). Severity: medium. https://nvd.nist.gov/vuln/detail/CVE-2026-23695
 - CVE-2026-46393 — SSRF in @haxtheweb/haxcms-nodejs via the authenticated createSite endpoint. Severity: high, 7.1. https://nvd.nist.gov/vuln/detail/CVE-2026-46393
 - CVE-2026-46401 — Session fixation in HAXcms < 26.0.0: tokens remain valid after logout, enabling hijacking. Severity: medium, 5.3. https://nvd.nist.gov/vuln/detail/CVE-2026-46401
+- CVE-2026-95675 — Unauthenticated OS command injection (CWE-78) in the D-Link DAP-1360 formSystemCheck handler at POST /apply.cgi (ipv4_ping parameter), leading to pre-auth root RCE. Severity: critical, 9.3. https://nvd.nist.gov/vuln/detail/CVE-2026-95675
 
 ### Write-ups
 
@@ -25,6 +26,7 @@ D6fault began practical training on TryHackMe at age 13 (300+ rooms completed) a
 
 - HackerOne (VDP), 2025 — https://hackerone.com/d6fault
 - Synack / hhs.gov Responsible Disclosure acknowledgments, 2025
+- Synack / doe.gov Responsible Disclosure acknowledgments, 2026 — https://doe.responsibledisclosure.com/hc/en-us/articles/360052066474-Acknowledgments
 
 ## Profiles
 
