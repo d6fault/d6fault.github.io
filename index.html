@@ -270,39 +270,36 @@ section:first-child { padding-top: 10px; }
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 10px;
+    gap: 2px;
     padding-bottom: 22px;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 4px;
 }
-.cve-cmd .ps1 { color: var(--dim); font-size: 0.8rem; margin-right: 2px; }
+.cve-cmd .ps1 { color: var(--dim); font-size: 0.8rem; margin-right: 14px; }
 .cf {
     background: none;
-    border: 1px solid var(--line-2);
-    color: var(--muted);
+    border: none;
+    color: var(--dim);
     font-family: inherit;
-    font-size: 0.75rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 7px 14px;
+    font-size: 0.8rem;
+    padding: 8px 14px 8px 0;
+    margin-right: 18px;
     cursor: pointer;
     transition: 0.15s;
 }
-.cf:hover { border-color: var(--dim); color: var(--text); }
+.cf:hover { color: var(--muted); }
 .cf:active { transform: translateY(1px); }
-.cf:focus-visible { outline: 1px solid var(--dim); outline-offset: 3px; }
-.cf[aria-pressed="true"] { border-color: var(--text); color: var(--text); background: var(--panel); }
-.cf .cf-n { color: var(--dim); margin-left: 7px; font-size: 0.7rem; letter-spacing: 1px; }
+.cf:focus-visible { outline: 1px solid var(--dim); outline-offset: 4px; }
+.cf[aria-pressed="true"] { color: #fff; }
+.cf .cf-n { color: var(--dim); margin-left: 7px; }
 .cf[aria-pressed="true"] .cf-n { color: var(--muted); }
 .cve-row[hidden] { display: none; }
-.cve-count { color: var(--dim); font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; margin-left: auto; }
+.cve-count { color: var(--dim); font-size: 0.75rem; margin-left: auto; }
 .cve-empty {
     color: var(--dim);
-    font-size: 0.85rem;
-    padding: 40px 0;
-    border-bottom: 1px solid var(--line);
+    font-size: 0.8rem;
+    padding: 34px 0;
 }
 .cve-empty code { color: var(--muted); }
+.cve-empty .cf { margin-left: 6px; padding: 0; margin-right: 0; }
 
 /* blog */
 .post-row {
@@ -424,14 +421,14 @@ footer {
         </section>
 
         <section id="research">
-            <div class="s-head"><span class="s-num">02</span><h2>Research</h2><span class="s-line"></span><button class="cf" id="cve-link" type="button" title="Copy link to the selected filter">copy_link</button></div>
+            <div class="s-head"><span class="s-num">02</span><h2>Research</h2><span class="s-line"></span><button class="cf" id="cve-link" type="button" title="Copy link to the selected filter">share</button></div>
             <div class="cve-cmd" role="group" aria-label="Filter CVEs by severity">
                 <span class="ps1" aria-hidden="true">$ filter --severity</span>
                 <button class="cf" type="button" data-sev="all" aria-pressed="true">all<span class="cf-n">5</span></button>
                 <button class="cf" type="button" data-sev="critical" aria-pressed="false">critical<span class="cf-n">2</span></button>
                 <button class="cf" type="button" data-sev="high" aria-pressed="false">high<span class="cf-n">1</span></button>
                 <button class="cf" type="button" data-sev="medium" aria-pressed="false">medium<span class="cf-n">2</span></button>
-                <span class="cve-count" id="cve-count" role="status" aria-live="polite">showing 5 / 5</span>
+                <span class="cve-count" id="cve-count" role="status" aria-live="polite">5 / 5</span>
             </div>
             <div class="cve-list" id="cve-list">
                 <div class="cve-row" data-severity="medium">
@@ -480,7 +477,7 @@ footer {
                     </div>
                 </div>
             </div>
-            <p class="cve-empty" id="cve-empty" hidden>no CVEs match <code>--severity <span id="cve-empty-sev"></span></code> &middot; <button class="cf" type="button" id="cve-reset">reset</button></p>
+            <p class="cve-empty" id="cve-empty" hidden>no matches for <code>--severity <span id="cve-empty-sev"></span></code> &middot; <button class="cf" type="button" id="cve-reset">clear</button></p>
         </section>
 
         <section id="blog">
@@ -559,7 +556,7 @@ const artLines = ["             )~                                              
         filters.forEach(f => f.setAttribute("aria-pressed", String(f.dataset.sev === sev)));
         empty.hidden = shown !== 0;
         emptySev.textContent = sev;
-        count.textContent = `showing ${shown} / ${TOTAL}`;
+        count.textContent = `${shown} / ${TOTAL}`;
         if (scroll && sev !== "all") {
             document.getElementById("research").scrollIntoView({ behavior: "smooth", block: "start" });
         }
@@ -580,7 +577,7 @@ const artLines = ["             )~                                              
         const url = location.origin + location.pathname + (sev === "all" ? "" : "#research=" + sev);
         const done = () => {
             link.textContent = "copied";
-            setTimeout(() => { link.textContent = "copy_link"; }, 1400);
+            setTimeout(() => { link.textContent = "share"; }, 1400);
         };
         if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, done);
         else done();
