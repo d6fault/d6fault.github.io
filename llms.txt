@@ -17,6 +17,7 @@ D6fault began practical training on TryHackMe at age 13 (300+ rooms completed) a
 - CVE-2026-46393 — SSRF in @haxtheweb/haxcms-nodejs via the authenticated createSite endpoint. Severity: high, 7.1. https://nvd.nist.gov/vuln/detail/CVE-2026-46393
 - CVE-2026-46401 — Session fixation in HAXcms < 26.0.0: tokens remain valid after logout, enabling hijacking. Severity: medium, 5.3. https://nvd.nist.gov/vuln/detail/CVE-2026-46401
 - CVE-2026-95675 — Unauthenticated OS command injection (CWE-78) in the D-Link DAP-1360 formSystemCheck handler at POST /apply.cgi (ipv4_ping parameter), leading to pre-auth root RCE. Severity: critical, 9.3. https://nvd.nist.gov/vuln/detail/CVE-2026-95675
+- CVE-2026-109439 — Missing authentication (CWE-306) in Lantronix XPress-DR and XPress-DR-I (CoBos family) firmware <= 8.1.0.0: crafted frames to the unauthenticated UDP configuration protocol on port 30718 read live configuration and persistently overwrite device IP address and serial-channel forwarding records, committing changes to EEPROM across reboots. Severity: critical, 9.8. https://nvd.nist.gov/vuln/detail/CVE-2026-109439
 
 ### Write-ups
 
