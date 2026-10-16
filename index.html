@@ -265,6 +265,45 @@ section:first-child { padding-top: 10px; }
 .cve-body .tag { color: var(--dim); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; display: block; }
 .cve-body p { color: var(--muted); font-size: 0.9rem; }
 
+/* cve filters */
+.cve-cmd {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 4px;
+}
+.cve-cmd .ps1 { color: var(--dim); font-size: 0.8rem; margin-right: 2px; }
+.cf {
+    background: none;
+    border: 1px solid var(--line-2);
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    cursor: pointer;
+    transition: 0.15s;
+}
+.cf:hover { border-color: var(--dim); color: var(--text); }
+.cf:active { transform: translateY(1px); }
+.cf:focus-visible { outline: 1px solid var(--dim); outline-offset: 3px; }
+.cf[aria-pressed="true"] { border-color: var(--text); color: var(--text); background: var(--panel); }
+.cf .cf-n { color: var(--dim); margin-left: 7px; font-size: 0.7rem; letter-spacing: 1px; }
+.cf[aria-pressed="true"] .cf-n { color: var(--muted); }
+.cve-row[hidden] { display: none; }
+.cve-count { color: var(--dim); font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; margin-left: auto; }
+.cve-empty {
+    color: var(--dim);
+    font-size: 0.85rem;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--line);
+}
+.cve-empty code { color: var(--muted); }
+
 /* blog */
 .post-row {
     display: grid;
@@ -335,6 +374,9 @@ footer {
     #content { padding: 40px 28px 60px; }
     .about-cols { grid-template-columns: 1fr; gap: 30px; }
     .cve-row { grid-template-columns: 1fr; gap: 10px; }
+    .cve-cmd { gap: 8px; }
+    .cf { padding: 6px 11px; letter-spacing: 1px; }
+    .cve-count { margin-left: 0; width: 100%; }
     .post-row { grid-template-columns: 1fr; gap: 8px; }
 }
 </style>
@@ -382,9 +424,17 @@ footer {
         </section>
 
         <section id="research">
-            <div class="s-head"><span class="s-num">02</span><h2>Research</h2><span class="s-line"></span></div>
-            <div class="cve-list">
-                <div class="cve-row">
+            <div class="s-head"><span class="s-num">02</span><h2>Research</h2><span class="s-line"></span><button class="cf" id="cve-link" type="button" title="Copy link to the selected filter">copy_link</button></div>
+            <div class="cve-cmd" role="group" aria-label="Filter CVEs by severity">
+                <span class="ps1" aria-hidden="true">$ filter --severity</span>
+                <button class="cf" type="button" data-sev="all" aria-pressed="true">all<span class="cf-n">5</span></button>
+                <button class="cf" type="button" data-sev="critical" aria-pressed="false">critical<span class="cf-n">2</span></button>
+                <button class="cf" type="button" data-sev="high" aria-pressed="false">high<span class="cf-n">1</span></button>
+                <button class="cf" type="button" data-sev="medium" aria-pressed="false">medium<span class="cf-n">2</span></button>
+                <span class="cve-count" id="cve-count" role="status" aria-live="polite">showing 5 / 5</span>
+            </div>
+            <div class="cve-list" id="cve-list">
+                <div class="cve-row" data-severity="medium">
                     <a class="cid" href="https://nvd.nist.gov/vuln/detail/CVE-2026-23695" target="_blank">CVE-2026-23695</a>
                     <span class="sev">severity: medium &middot; 5.1</span>
                     <div class="cve-body">
@@ -393,7 +443,7 @@ footer {
                         <p>Stored cross-site scripting in the "Set" field type's Display template option. User-supplied input is processed by an unsafe function and rendered with Vue's v-html directive without sanitization, allowing an authenticated attacker with specific permissions to inject JavaScript into other users' browsers.</p>
                     </div>
                 </div>
-                <div class="cve-row">
+                <div class="cve-row" data-severity="high">
                     <a class="cid" href="https://nvd.nist.gov/vuln/detail/CVE-2026-46393" target="_blank">CVE-2026-46393</a>
                     <span class="sev">severity: high &middot; 7.1</span>
                     <div class="cve-body">
@@ -402,7 +452,7 @@ footer {
                         <p>By leveraging the createSite endpoint, an authenticated attacker can trick the HAXcms backend into sending requests to and reading responses from arbitrary internal services or unintended local resources, enabling data exfiltration.</p>
                     </div>
                 </div>
-                <div class="cve-row">
+                <div class="cve-row" data-severity="critical">
                     <a class="cid" href="https://nvd.nist.gov/vuln/detail/CVE-2026-95675" target="_blank">CVE-2026-95675</a>
                     <span class="sev">severity: critical &middot; 9.3</span>
                     <div class="cve-body">
@@ -411,7 +461,7 @@ footer {
                         <p>Unauthenticated OS command injection (CWE-78) in the formSystemCheck handler at POST /apply.cgi. The ipv4_ping parameter is passed unsanitized into a shell command via vsprintf and system(), allowing a remote attacker to execute arbitrary commands as root.</p>
                     </div>
                 </div>
-                <div class="cve-row">
+                <div class="cve-row" data-severity="critical">
                     <a class="cid" href="https://nvd.nist.gov/vuln/detail/CVE-2026-109439" target="_blank">CVE-2026-109439</a>
                     <span class="sev">severity: critical &middot; 9.8</span>
                     <div class="cve-body">
@@ -420,7 +470,7 @@ footer {
                         <p>Missing authentication (CWE-306) in the CoBos-family UDP configuration protocol on port 30718. Crafted frames let a remote attacker read live configuration data and overwrite the device IP address and serial-channel forwarding records, with changes committed to EEPROM and persisting across reboots.</p>
                     </div>
                 </div>
-                <div class="cve-row">
+                <div class="cve-row" data-severity="medium">
                     <a class="cid" href="https://nvd.nist.gov/vuln/detail/CVE-2026-46401" target="_blank">CVE-2026-46401</a>
                     <span class="sev">severity: medium &middot; 5.3</span>
                     <div class="cve-body">
@@ -430,6 +480,7 @@ footer {
                     </div>
                 </div>
             </div>
+            <p class="cve-empty" id="cve-empty" hidden>no CVEs match <code>--severity <span id="cve-empty-sev"></span></code> &middot; <button class="cf" type="button" id="cve-reset">reset</button></p>
         </section>
 
         <section id="blog">
@@ -484,6 +535,72 @@ function tick() {
 tick();
 
 const artLines = ["             )~                                                                        !            ","             .%q;                                                                    C@?            ","              q@@Y'                                                                n%B8.            ","             ')@@@@Cl                                                           :L@BBB).            ","               o@@@@@Zl\"                                                    . +8B@@@@p              ","               :&B$@Wz$avk~'  .                                        . .\"w@]kB@@@@B?              ","                xB@@`W@@\\@B@@%Z>                                      LB%@B@dU]@@@@B/               ","                .X$r%@@@c@@$@@@@BYCYJZn<                     \"jLkx%B@@@@@@@#!BXo@@@L'               ","                 ./U@@@@c#@@@@B@wO@@v@@@B@@$@BBBk(YZW8B@@@$@@@@%;[*@@@@@$@Bx%Baf@BC                 ","                   v@@B@hn@@@@@UxBB%wz@@@@@@@@@@|8Bt%@$@$@@@@@Bc*%_&$@@@@BLQB@@|kC                  ","                    }%@@% B@@$onB@@@@xk@@@@@@@B&nB@Xh@@@@$@@BB*|BBkLB@@@@kv@@@@%\"                   ","                     ;aB%xa@@wx@@@@@@WuB@@$@@@@_*@@Wi%B@@@@@B&<%%@@|b%@$BtB$@@b\"                    ","                       tB*X@o\\B@@@@@$@YO@@@@@@bY@@@@0ZBB@@@@@Jo@@@@@/@BB/h@BBr                      ","                       ..OY*x@@@@$@$@$@f8@@@@@v@@@@@@v@$@@@@a{@@@@@@pX@hJB@0                        ","                         . !%@@$$@@$@@@hU@@@@a\\@@@@@@xh@@@BBt%@@@@@@Bnql&O.                         ","                             -BB$@@$$@@@/k@@BiW$@@@@@B;B@@@LkB@@@@@@B@])                            ","                               \"t%@@@@@@@j@Bq0@@@@@@@@00BBqrB@@@@B@%n^.                             ","                               . .'~m%@@@0pB\\&@@@@@@@@8x@@uBB@@@Z+'..                               ","                                       I-viQJ@$@@@@@@@@Xwr0Y?I"];
+
+(function cveFilter() {
+    const filters = Array.from(document.querySelectorAll(".cf[data-sev]"));
+    const rows = Array.from(document.querySelectorAll(".cve-row"));
+    const empty = document.getElementById("cve-empty");
+    const emptySev = document.getElementById("cve-empty-sev");
+    const count = document.getElementById("cve-count");
+    const link = document.getElementById("cve-link");
+    if (!filters.length || !rows.length) return;
+
+    const VALID = filters.map(f => f.dataset.sev);
+    const TOTAL = rows.length;
+    const label = sev => filters.find(f => f.dataset.sev === sev).textContent.replace(/\d+$/, "").trim();
+
+    function apply(sev, { scroll = false } = {}) {
+        let shown = 0;
+        rows.forEach(row => {
+            const match = sev === "all" || row.dataset.severity === sev;
+            row.hidden = !match;
+            if (match) shown++;
+        });
+        filters.forEach(f => f.setAttribute("aria-pressed", String(f.dataset.sev === sev)));
+        empty.hidden = shown !== 0;
+        emptySev.textContent = sev;
+        count.textContent = `showing ${shown} / ${TOTAL}`;
+        if (scroll && sev !== "all") {
+            document.getElementById("research").scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    filters.forEach(f => f.addEventListener("click", () => {
+        apply(f.dataset.sev);
+        history.replaceState(null, "", f.dataset.sev === "all" ? location.pathname + location.search : "#research=" + f.dataset.sev);
+    }));
+
+    document.getElementById("cve-reset").addEventListener("click", () => {
+        apply("all");
+        history.replaceState(null, "", location.pathname + location.search);
+    });
+
+    link.addEventListener("click", () => {
+        const sev = filters.find(f => f.getAttribute("aria-pressed") === "true").dataset.sev;
+        const url = location.origin + location.pathname + (sev === "all" ? "" : "#research=" + sev);
+        const done = () => {
+            link.textContent = "copied";
+            setTimeout(() => { link.textContent = "copy_link"; }, 1400);
+        };
+        if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, done);
+        else done();
+    });
+
+    function fromHash() {
+        const m = location.hash.match(/^#research(?:=([a-z]+))?$/);
+        if (!m) return null;
+        return VALID.includes(m[1] || "") ? m[1] : "all";
+    }
+
+    const initial = fromHash();
+    if (initial && initial !== "all") apply(initial, { scroll: true });
+    else apply("all");
+
+    window.addEventListener("hashchange", () => {
+        const sev = fromHash();
+        if (sev) apply(sev, { scroll: sev !== "all" });
+    });
+})();
 
 (function fastType() {
     const element = document.getElementById("type-art");
