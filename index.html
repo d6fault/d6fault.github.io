@@ -292,6 +292,19 @@ section:first-child { padding-top: 10px; }
 .cf .cf-n { color: var(--dim); margin-left: 7px; }
 .cf[aria-pressed="true"] .cf-n { color: var(--muted); }
 .cve-row[hidden] { display: none; }
+.cve-groups { display: flex; flex-direction: column; }
+.cve-group {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 34px 0 18px;
+    border-bottom: 1px solid var(--line);
+}
+.cve-group:first-child { padding-top: 6px; }
+.cve-group .cve-gn { margin-left: 9px; }
+.cve-group[hidden] { display: none; }
 .cve-count { color: var(--dim); font-size: 0.75rem; margin-left: auto; }
 .cve-empty {
     color: var(--dim);
@@ -430,26 +443,10 @@ footer {
                 <button class="cf" type="button" data-sev="medium" aria-pressed="false">medium<span class="cf-n">2</span></button>
                 <span class="cve-count" id="cve-count" role="status" aria-live="polite">5 / 5</span>
             </div>
-            <div class="cve-list" id="cve-list">
-                <div class="cve-row" data-severity="medium">
-                    <a class="cid" href="https://nvd.nist.gov/vuln/detail/CVE-2026-23695" target="_blank">CVE-2026-23695</a>
-                    <span class="sev">severity: medium &middot; 5.1</span>
-                    <div class="cve-body">
-                        <span class="tag">Cockpit CMS &lt;= 2.14.0</span>
-                        <div class="target">Stored XSS<span>authenticated</span>Vue v-html</div>
-                        <p>Stored cross-site scripting in the "Set" field type's Display template option. User-supplied input is processed by an unsafe function and rendered with Vue's v-html directive without sanitization, allowing an authenticated attacker with specific permissions to inject JavaScript into other users' browsers.</p>
-                    </div>
-                </div>
-                <div class="cve-row" data-severity="high">
-                    <a class="cid" href="https://nvd.nist.gov/vuln/detail/CVE-2026-46393" target="_blank">CVE-2026-46393</a>
-                    <span class="sev">severity: high &middot; 7.1</span>
-                    <div class="cve-body">
-                        <span class="tag">@haxtheweb/haxcms-nodejs</span>
-                        <div class="target">SSRF<span>createSite</span>authenticated</div>
-                        <p>By leveraging the createSite endpoint, an authenticated attacker can trick the HAXcms backend into sending requests to and reading responses from arbitrary internal services or unintended local resources, enabling data exfiltration.</p>
-                    </div>
-                </div>
-                <div class="cve-row" data-severity="critical">
+                        <div class="cve-groups">
+            <h3 class="cve-group">ics_iot<span class="cve-gn">2</span></h3>
+            <div class="cve-list">
+        <div class="cve-row" data-severity="critical">
                     <a class="cid" href="https://nvd.nist.gov/vuln/detail/CVE-2026-95675" target="_blank">CVE-2026-95675</a>
                     <span class="sev">severity: critical &middot; 9.3</span>
                     <div class="cve-body">
@@ -458,7 +455,7 @@ footer {
                         <p>Unauthenticated OS command injection (CWE-78) in the formSystemCheck handler at POST /apply.cgi. The ipv4_ping parameter is passed unsanitized into a shell command via vsprintf and system(), allowing a remote attacker to execute arbitrary commands as root.</p>
                     </div>
                 </div>
-                <div class="cve-row" data-severity="critical">
+        <div class="cve-row" data-severity="critical">
                     <a class="cid" href="https://nvd.nist.gov/vuln/detail/CVE-2026-109439" target="_blank">CVE-2026-109439</a>
                     <span class="sev">severity: critical &middot; 9.8</span>
                     <div class="cve-body">
@@ -467,7 +464,28 @@ footer {
                         <p>Missing authentication (CWE-306) in the CoBos-family UDP configuration protocol on port 30718. Crafted frames let a remote attacker read live configuration data and overwrite the device IP address and serial-channel forwarding records, with changes committed to EEPROM and persisting across reboots.</p>
                     </div>
                 </div>
-                <div class="cve-row" data-severity="medium">
+            </div>
+            <h3 class="cve-group">web<span class="cve-gn">3</span></h3>
+            <div class="cve-list">
+        <div class="cve-row" data-severity="medium">
+                    <a class="cid" href="https://nvd.nist.gov/vuln/detail/CVE-2026-23695" target="_blank">CVE-2026-23695</a>
+                    <span class="sev">severity: medium &middot; 5.1</span>
+                    <div class="cve-body">
+                        <span class="tag">Cockpit CMS &lt;= 2.14.0</span>
+                        <div class="target">Stored XSS<span>authenticated</span>Vue v-html</div>
+                        <p>Stored cross-site scripting in the "Set" field type's Display template option. User-supplied input is processed by an unsafe function and rendered with Vue's v-html directive without sanitization, allowing an authenticated attacker with specific permissions to inject JavaScript into other users' browsers.</p>
+                    </div>
+                </div>
+        <div class="cve-row" data-severity="high">
+                    <a class="cid" href="https://nvd.nist.gov/vuln/detail/CVE-2026-46393" target="_blank">CVE-2026-46393</a>
+                    <span class="sev">severity: high &middot; 7.1</span>
+                    <div class="cve-body">
+                        <span class="tag">@haxtheweb/haxcms-nodejs</span>
+                        <div class="target">SSRF<span>createSite</span>authenticated</div>
+                        <p>By leveraging the createSite endpoint, an authenticated attacker can trick the HAXcms backend into sending requests to and reading responses from arbitrary internal services or unintended local resources, enabling data exfiltration.</p>
+                    </div>
+                </div>
+        <div class="cve-row" data-severity="medium">
                     <a class="cid" href="https://nvd.nist.gov/vuln/detail/CVE-2026-46401" target="_blank">CVE-2026-46401</a>
                     <span class="sev">severity: medium &middot; 5.3</span>
                     <div class="cve-body">
@@ -477,7 +495,8 @@ footer {
                     </div>
                 </div>
             </div>
-            <p class="cve-empty" id="cve-empty" hidden>no matches for <code>--severity <span id="cve-empty-sev"></span></code> &middot; <button class="cf" type="button" id="cve-reset">clear</button></p>
+            </div>
+<p class="cve-empty" id="cve-empty" hidden>no matches for <code>--severity <span id="cve-empty-sev"></span></code> &middot; <button class="cf" type="button" id="cve-reset">clear</button></p>
         </section>
 
         <section id="blog">
@@ -544,7 +563,7 @@ const artLines = ["             )~                                              
 
     const VALID = filters.map(f => f.dataset.sev);
     const TOTAL = rows.length;
-    const label = sev => filters.find(f => f.dataset.sev === sev).textContent.replace(/\d+$/, "").trim();
+    const groups = Array.from(document.querySelectorAll(".cve-group"));
 
     function apply(sev, { scroll = false } = {}) {
         let shown = 0;
@@ -552,6 +571,11 @@ const artLines = ["             )~                                              
             const match = sev === "all" || row.dataset.severity === sev;
             row.hidden = !match;
             if (match) shown++;
+        });
+        groups.forEach(g => {
+            const next = g.nextElementSibling;
+            const groupShown = next && Array.from(next.querySelectorAll(".cve-row")).some(r => !r.hidden);
+            g.hidden = !groupShown;
         });
         filters.forEach(f => f.setAttribute("aria-pressed", String(f.dataset.sev === sev)));
         empty.hidden = shown !== 0;
