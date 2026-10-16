@@ -1,4 +1,4 @@
-# D6fault — Security Researcher & YouTuber
+# D6fault — Security Researcher
 
 > Official site of D6fault (https://d6fault.dev): an American security researcher specializing in web security, ICS/OT security, firmware reverse engineering, and responsible disclosure in government and corporate systems
 
