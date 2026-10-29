@@ -29,6 +29,7 @@ D6fault began practical training on TryHackMe at age 13 (300+ rooms completed) a
 - Synack / hhs.gov Responsible Disclosure acknowledgments, 2025 — https://hhs.responsibledisclosure.com/hc/en-us/articles/1500000280921-Acknowledgments
 - Synack / doe.gov Responsible Disclosure acknowledgments, 2026 — https://doe.responsibledisclosure.com/hc/en-us/articles/360052066474-Acknowledgments
 - Synack / doj.gov Responsible Disclosure acknowledgments, 2026 — https://fb6d331c8f530081fa81e12d81678ff8.responsibledisclosure.com/hc/en-us/articles/1500003305722-Acknowledgments
+- Synack / Domino's Responsible Disclosure acknowledgments, 2026 — https://dominos.responsibledisclosure.com/hc/en-us/articles/360001378594-Acknowledgments
 
 ## Profiles
 
